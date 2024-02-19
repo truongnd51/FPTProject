@@ -5,19 +5,25 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.fptproject.models.User;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME="doctor.db";
+    private static final String DATABASE_NAME="database.db";
+
     public static final String TABLE_NAME="doctor";
-    public static final String USERNAME ="username";
-    public static final String PASSWORD ="password";
+    public static final String USERNAME="username";
+    public static final String PASSWORD="password";
     private static final int DATABASE_VERSION = 1;
     private Context context;
 
@@ -28,10 +34,29 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE " + TABLE_NAME + "("
-                + USERNAME + " TEXT NOT NULL PRIMARY KEY,"
-                + PASSWORD + " TEXT NOT NULL)";
-        sqLiteDatabase.execSQL(sql);
+        Log.d("TAG", "onCreate: ");
+        try {
+            InputStream inputStream = context.getAssets().open("database.sql");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+                stringBuilder.append("\n");
+            }
+            String createScript = stringBuilder.toString();
+            bufferedReader.close();
+            String[] statements = createScript.split(";");
+
+            for (String statement : statements) {
+                Log.d("DatabaseHelper", statement);
+                if (statement.trim().length() > 0)
+                    sqLiteDatabase.execSQL(statement);
+            }
+        } catch (IOException e) {
+            Log.d("TAG", "Error: " + e.toString());
+        }
     }
 
     @Override
