@@ -12,6 +12,7 @@ CREATE TABLE Doctor (
     doctor_password TEXT,
     doctor_email TEXT,
     doctor_phone TEXT,
+    doctor_image TEXT,
     FOREIGN KEY (clinic_id) REFERENCES Clinic (clinic_id)
 );
 CREATE TABLE Patient (
@@ -27,20 +28,27 @@ CREATE TABLE Disease (
     disease_name TEXT,
     disease_description TEXT
 );
+CREATE TABLE Schedule (
+    schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    patient_id
+    doctor_id
+    time_start TIMESTAMP,
+    time_end TIMESTAMP,
 CREATE TABLE Report (
     report_id INTEGER PRIMARY KEY AUTOINCREMENT,
     doctor_id INTEGER,
     clinic_id INTEGER,
     patient_id INTEGER,
     disease_id INTEGER,
-    schedule date,
-    time_start TIMESTAMP,
-    time_end TIMESTAMP,
+    schedule_id INTEGER,
+--    time_start TIMESTAMP,
+--    time_end TIMESTAMP,
     is_paid BIT,
     FOREIGN KEY (clinic_id) REFERENCES Clinic (clinic_id),
     FOREIGN KEY (doctor_id) REFERENCES Doctor (doctor_id),
     FOREIGN KEY (patient_id) REFERENCES Patient (patient_id),
     FOREIGN KEY (disease_id) REFERENCES Disease (disease_id)
+    FOREIGN KEY (schedule_id) REFERENCES Schedule (schedule_id)
 );
 
 
