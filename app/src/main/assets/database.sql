@@ -53,9 +53,9 @@ VALUES (2, "Duy Truong2", "truong2", "truong","truong2@gmail.com", "0386713387",
 INSERT INTO Doctor (doctor_id, doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
 VALUES (3, "Duy Truong3", "truong3", "truong","truong3@gmail.com", "0386713386",NULL);
 INSERT INTO Patient (patient_id, patient_name, patient_username, patient_password, patient_email, patient_phone)
-VALUES (1, "Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380",NULL);
+VALUES (1, "Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380";
 INSERT INTO Patient (patient_id, patient_name, patient_username, patient_password, patient_email, patient_phone)
-VALUES (2, "DT", "DT", "truong","dt@gmail.com", "0386713382",NULL);
+VALUES (2, "DT", "DT", "truong","dt@gmail.com", "0386713382");
 
 
 
