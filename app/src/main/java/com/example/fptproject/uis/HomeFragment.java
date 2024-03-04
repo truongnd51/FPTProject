@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fptproject.R;
+import com.example.fptproject.banner.ImagePaperAdapter;
 import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.models.HomeMenuAdapter;
 import com.example.fptproject.models.HomeMenuDoctor;
@@ -30,6 +32,10 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView1;
     private HomeMenuAdapter homeMenuAdapter;
     private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
+    private ViewPager mViewPager;
+    private ImagePaperAdapter mAdapter;
+
+    private int[] mImageIds = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -102,6 +108,10 @@ public class HomeFragment extends Fragment {
         GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getContext(), 2);
         recyclerView1.setLayoutManager(gridLayoutManager1);
         recyclerView1.setAdapter(homeMenuDoctorAdapter);
+
+        mViewPager = view.findViewById(R.id.view_pager_home);
+        mAdapter = new ImagePaperAdapter(requireContext(), mImageIds);
+        mViewPager.setAdapter(mAdapter);
         return view;
     }
 }
