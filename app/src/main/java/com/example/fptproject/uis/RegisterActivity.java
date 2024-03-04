@@ -17,6 +17,9 @@ import com.example.fptproject.models.User;
 public class RegisterActivity extends AppCompatActivity {
     EditText edtUsername;
     EditText edtPassword;
+    EditText edtName;
+    EditText edtEmail;
+    EditText edtPhone;
     Button btnRegister;
     DBHelper dbHelper;
 
@@ -28,6 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         dbHelper=new DBHelper(this);
         edtUsername=findViewById(R.id.edtUsername2);
         edtPassword=findViewById(R.id.edtPassword2);
+        edtName=findViewById(R.id.edtName);
+        edtEmail=findViewById(R.id.edtEmail);
+        edtPhone=findViewById(R.id.edtPhone);
         btnRegister=findViewById(R.id.btnRegister2);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
