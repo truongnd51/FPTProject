@@ -1,14 +1,23 @@
 package com.example.fptproject.uis;
 
 import android.os.Bundle;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fptproject.R;
+import com.example.fptproject.models.HomeMenu;
+import com.example.fptproject.models.HomeMenuAdapter;
+import com.example.fptproject.models.HomeMenuDoctor;
+import com.example.fptproject.models.HomeMenuDoctorAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +26,10 @@ import com.example.fptproject.R;
  */
 public class HomeFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private RecyclerView recyclerView1;
+    private HomeMenuAdapter homeMenuAdapter;
+    private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -57,10 +70,38 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private List<HomeMenu> getList(){
+        List<HomeMenu> list = new ArrayList<>();
+        list.add(new HomeMenu(R.drawable.ic_action_schedule, "Booking"));
+        list.add(new HomeMenu(R.drawable.ic_action_about, "About us"));
+        list.add(new HomeMenu(R.drawable.ic_action_guide, "Guide"));
+        return list;
+    }
+    private List<HomeMenuDoctor> getDoctorList(){
+        List<HomeMenuDoctor> list = new ArrayList<>();
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR A"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
+        return list;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = view.findViewById(R.id.Home_menu_option);
+        homeMenuAdapter = new HomeMenuAdapter(getList());
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(homeMenuAdapter);
+
+        recyclerView1 = view.findViewById(R.id.Home_doctor_list);
+        homeMenuDoctorAdapter = new HomeMenuDoctorAdapter(getDoctorList());
+        GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getContext(), 2);
+        recyclerView1.setLayoutManager(gridLayoutManager1);
+        recyclerView1.setAdapter(homeMenuDoctorAdapter);
+        return view;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.fptproject.uis;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,9 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.databases.repositories.PatientRepository;
+import com.example.fptproject.models.Patient;
 import com.example.fptproject.models.User;
+
 
 public class RegisterActivity extends AppCompatActivity {
     EditText edtUsername;
@@ -22,13 +28,14 @@ public class RegisterActivity extends AppCompatActivity {
     EditText edtPhone;
     Button btnRegister;
     DBHelper dbHelper;
-
+    PatientRepository patientRepository;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         dbHelper=new DBHelper(this);
+        patientRepository = new PatientRepository(dbHelper);
         edtUsername=findViewById(R.id.edtUsername2);
         edtPassword=findViewById(R.id.edtPassword2);
         edtName=findViewById(R.id.edtName);
@@ -40,13 +47,19 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username=edtUsername.getText().toString().trim();
                 String password=edtPassword.getText().toString().trim();
-                if(username.length()!=0 && password.length()!=0){
-                    dbHelper.add(new User(username,password));
-                    Toast.makeText(RegisterActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                }
-                else{
-                    Toast.makeText(RegisterActivity.this, "Nhap", Toast.LENGTH_SHORT).show();
+                String name=edtName.getText().toString().trim();
+                String email=edtEmail.getText().toString().trim();
+                String phone=edtPhone.getText().toString().trim();
+                if (username.length() != 0 && password.length() != 0) {
+                    if (patientRepository.isUsernameExists(username)) {
+                        Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                    } else {
+                        patientRepository.addPatient(username, password, name, email, phone);
+                        Toast.makeText(RegisterActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    }
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
