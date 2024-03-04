@@ -6,6 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".uis.LoginActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" />
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wellcome to MedF!"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:paddingLeft="110dp"/>
+
+
     <EditText
         android:id="@+id/edtUsername"
         android:hint="Username:"
