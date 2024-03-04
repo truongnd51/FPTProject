@@ -1,6 +1,8 @@
 package com.example.fptproject.uis;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,11 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
 import com.example.fptproject.databases.repositories.DoctorRepository;
+import com.example.fptproject.databases.repositories.PatientRepository;
 import com.example.fptproject.models.User;
+
 
 public class LoginActivity extends AppCompatActivity {
     EditText edtUsername;
@@ -23,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btnRegister;
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
+    PatientRepository patientRepository;
+
 
     @Override
     protected void onStart() {
@@ -33,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         dbHelper=new DBHelper(this);
         doctorRepository=new DoctorRepository(dbHelper);
+        patientRepository=new PatientRepository(dbHelper);
         edtUsername=findViewById(R.id.edtUsername);
         edtPassword=findViewById(R.id.edtPassword);
         btnLogin=findViewById(R.id.btnLogin);
@@ -57,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username=edtUsername.getText().toString().trim();
                 String password=edtPassword.getText().toString().trim();
                 if(username.length()!=0 && password.length()!=0){
-                    if(doctorRepository.checkDoctor(username,password)){
+                    if(doctorRepository.checkDoctor(username,password)||patientRepository.checkPatient(username,password)){
                         Toast.makeText(LoginActivity.this, "successful"+username+password, Toast.LENGTH_SHORT).show();
                         PrefManager.saveString(LoginActivity.this,"username",username);
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));

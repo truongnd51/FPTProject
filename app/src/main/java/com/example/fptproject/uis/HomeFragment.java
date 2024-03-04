@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.fptproject.R;
 import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.models.HomeMenuAdapter;
+import com.example.fptproject.models.HomeMenuDoctor;
+import com.example.fptproject.models.HomeMenuDoctorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,9 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private RecyclerView recyclerView1;
     private HomeMenuAdapter homeMenuAdapter;
+    private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -73,6 +77,14 @@ public class HomeFragment extends Fragment {
         list.add(new HomeMenu(R.drawable.ic_action_guide, "Guide"));
         return list;
     }
+    private List<HomeMenuDoctor> getDoctorList(){
+        List<HomeMenuDoctor> list = new ArrayList<>();
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR A"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
+        return list;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,6 +96,12 @@ public class HomeFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(homeMenuAdapter);
+
+        recyclerView1 = view.findViewById(R.id.Home_doctor_list);
+        homeMenuDoctorAdapter = new HomeMenuDoctorAdapter(getDoctorList());
+        GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getContext(), 2);
+        recyclerView1.setLayoutManager(gridLayoutManager1);
+        recyclerView1.setAdapter(homeMenuDoctorAdapter);
         return view;
     }
 }

@@ -36,12 +36,6 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMe
         }
         holder.img.setImageResource(homeMenu.getImg());
         holder.tv.setText(homeMenu.getName());
-        holder.bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     @Override
@@ -55,12 +49,10 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMe
     public class HomeMenuViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
         private TextView tv;
-        private Button bt;
         public HomeMenuViewHolder(@NonNull View view) {
             super(view);
             img = view.findViewById(R.id.img);
             tv = view.findViewById(R.id.option_name);
-            bt = view.findViewById(R.id.button);
         }
     }
 }
