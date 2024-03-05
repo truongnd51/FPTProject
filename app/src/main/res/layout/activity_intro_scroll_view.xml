@@ -1,145 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/intro_scroll_view"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout
+    android:id="@+id/fragment_container">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:id="@+id/intro_scroll_view"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_back"/>
-            <TextView
-                android:id="@+id/Hello_sen"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="78dp"
-                android:text="GIỚI THIỆU PHÒNG KHÁM"
-                android:textStyle="bold"/>
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_back"/>
+                <TextView
+                    android:id="@+id/Hello_sen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="78dp"
+                    android:text="GIỚI THIỆU PHÒNG KHÁM"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chào mừng bạn đến với "
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PHÒNG KHÁM TÁC ĐỘNG CỘT SỐNG"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/button"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Ứng dụng phòng khám"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Hỗ trợ bệnh nhân và thân nhân dễ dàng tiếp cận với phòng khám.\n- Có thể quản lý lịch trình khám bệnh một cách nhanh chóng.\n- Hỗ trợ người dùng đặt lịch khám, tìm kiếm cơ sở y tế, lưu trữ hồ sơ y tế."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Về phòng khám"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro_full"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đến với phòng khám MedF, quý khách sẽ nhận được sự chăm sóc tận tình của các bác sĩ có chuyên môn cao, nhiều năm kinh nghiệm ân cần và tận tụy. Các bác sí sẽ chuẩn đoán và điều trị chính xác. Quý khách sẽ được lắng nghe và giải quyết những lo lắng của mình.
+                \n - Được thành lập cách đây 3 năm, chúng tôi tự hào là cơ sở có lâu năm kinh nghiệm, được nhiều khách hàng tin tưởng. Với thống kê trong vòng 3 năm có hơn 100.000 bệnh nhân và chữa khỏi cho toàn bộ."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro_full1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Điểm mạnh của chúng tôi:"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro_full2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Tầm soát và điều trị các bệnh thông thường với phương pháp tác động cột sống.
+                \n - Chăm sóc và tham vấn các vấn đề về sức khỏe thông thường.
+                \n - Kiểm tra sức khỏe định kì."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/hospital_intro_full3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đội ngũ bác sĩ"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+
+            <TextView
+                android:id="@+id/hospital_intro_full4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Đội ngũ bác sĩ có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh liên quan đến xương khớp và các kiểu cúm.
+                \n - Chăm sóc và tham vấn tân tình các vấn đề về sức khỏe của bệnh nhân và đưa ra giải pháp."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/disease_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Về các loại bệnh"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Thoái hóa cột sống cổ : đau tại vị trí thoái hóa, đau tay, tay tê bì.
+                \n- Thoái hóa cột sống lưng : đau tại vị trí thoái hóa, đau lưng, tê chân, ngồi lâu sẽ bị mỏi, buốt lưng.
+                \n- Thoát vị đĩa đệm, phồng đĩa đệm : Triệu chứng gần giồng thoái hóa cột sống cổ, lưng.
+                \n- Đau dây thân kinh liên sườn : đau quanh lồng ngực, thay đổi tư thế bị đau.
+                \n- Viêm quanh khớp vai : đau vai, tay, khó giơ tay khi mặc áo.
+                \n- Đau đầu, đau nửa đầu : đau đầu.
+                \n- Thiểu năng tuần hoàn não : đau đầu, tê bì đầu, tê tay.
+                \n- Hen mãn tính : khó thở, thở gấp."
+                android:textSize="18dp"/>
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chào mừng bạn đến với "
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/textViewTitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PHÒNG KHÁM TÁC ĐỘNG CỘT SỐNG"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:textColor="@color/button"
-            android:gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1. Ứng dụng phòng khám"
-            android:textColor="@color/button"
-            android:textStyle="bold"
-            android:textSize="22dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro_app"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Hỗ trợ bệnh nhân và thân nhân dễ dàng tiếp cận với phòng khám.\n- Có thể quản lý lịch trình khám bệnh một cách nhanh chóng.\n- Hỗ trợ người dùng đặt lịch khám, tìm kiếm cơ sở y tế, lưu trữ hồ sơ y tế."
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="2. Về phòng khám"
-            android:textColor="@color/button"
-            android:textStyle="bold"
-            android:textSize="22dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro_full"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đến với phòng khám MedF, quý khách sẽ nhận được sự chăm sóc tận tình của các bác sĩ có chuyên môn cao, nhiều năm kinh nghiệm ân cần và tận tụy. Các bác sí sẽ chuẩn đoán và điều trị chính xác. Quý khách sẽ được lắng nghe và giải quyết những lo lắng của mình.
-            \n - Được thành lập cách đây 3 năm, chúng tôi tự hào là cơ sở có lâu năm kinh nghiệm, được nhiều khách hàng tin tưởng. Với thống kê trong vòng 3 năm có hơn 100.000 bệnh nhân và chữa khỏi cho toàn bộ."
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro_full1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Điểm mạnh của chúng tôi:"
-            android:textColor="@color/button"
-            android:textStyle="bold"
-            android:textSize="22dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro_full2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Tầm soát và điều trị các bệnh thông thường với phương pháp tác động cột sống.
-            \n - Chăm sóc và tham vấn các vấn đề về sức khỏe thông thường.
-            \n - Kiểm tra sức khỏe định kì."
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/hospital_intro_full3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đội ngũ bác sĩ"
-            android:textColor="@color/button"
-            android:textStyle="bold"
-            android:textSize="22dp"/>
-
-
-        <TextView
-            android:id="@+id/hospital_intro_full4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Đội ngũ bác sĩ có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh liên quan đến xương khớp và các kiểu cúm.
-            \n - Chăm sóc và tham vấn tân tình các vấn đề về sức khỏe của bệnh nhân và đưa ra giải pháp."
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/disease_intro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="3. Về các loại bệnh"
-            android:textColor="@color/button"
-            android:textStyle="bold"
-            android:textSize="22dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Thoái hóa cột sống cổ : đau tại vị trí thoái hóa, đau tay, tay tê bì.
-            \n- Thoái hóa cột sống lưng : đau tại vị trí thoái hóa, đau lưng, tê chân, ngồi lâu sẽ bị mỏi, buốt lưng.
-            \n- Thoát vị đĩa đệm, phồng đĩa đệm : Triệu chứng gần giồng thoái hóa cột sống cổ, lưng.
-            \n- Đau dây thân kinh liên sườn : đau quanh lồng ngực, thay đổi tư thế bị đau.
-            \n- Viêm quanh khớp vai : đau vai, tay, khó giơ tay khi mặc áo.
-            \n- Đau đầu, đau nửa đầu : đau đầu.
-            \n- Thiểu năng tuần hoàn não : đau đầu, tê bì đầu, tê tay.
-            \n- Hen mãn tính : khó thở, thở gấp."
-            android:textSize="18dp"/>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</FrameLayout>
