@@ -13,11 +13,23 @@
         android:theme="@style/Theme.FPTProject"
         tools:targetApi="31">
         <activity
+            android:name=".scrollView.GuideScrollViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scrollView.IntroScrollViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scrollView.ScrollViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScrollViewIntro"
+            android:exported="false" />
+        <activity
             android:name=".uis.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".uis.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +38,7 @@
         </activity>
         <activity
             android:name=".uis.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
