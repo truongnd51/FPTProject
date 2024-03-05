@@ -13,32 +13,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <ImageView
-                android:id="@+id/logo_button_home"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="17dp"
-                android:src="@drawable/logo"/>
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back"/>
             <TextView
                 android:id="@+id/Hello_sen"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="17dp"
-                android:text="WELCOME"
+                android:paddingLeft="78dp"
+                android:text="GIỚI THIỆU PHÒNG KHÁM"
                 android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:paddingLeft="6dp"
-                android:paddingTop="17dp"
-                android:text="to MedF!" />
-
         </LinearLayout>
 
         <TextView
@@ -152,12 +140,6 @@
             \n- Thiểu năng tuần hoàn não : đau đầu, tê bì đầu, tê tay.
             \n- Hen mãn tính : khó thở, thở gấp."
             android:textSize="18dp"/>
-
-        <Button
-            android:id="@+id/button_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Trở lại"/>
 
     </LinearLayout>
 </ScrollView>

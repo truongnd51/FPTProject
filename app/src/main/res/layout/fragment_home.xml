@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".uis.HomeFragment">
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/v2"
         android:layout_width="match_parent"
@@ -13,12 +12,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
     <!-- TODO: Update blank fragment layout -->
+
     <ImageView
         android:id="@+id/logo_button_home"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="17dp"
+        android:background="@drawable/circle_bg"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +45,6 @@
         android:text="to MedF!"
         app:layout_constraintStart_toEndOf="@+id/Hello_sen"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <SearchView
         android:id="@+id/search_service"
