@@ -13,21 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fptproject.R;
+import com.example.fptproject.scrollView.GuideScrollViewActivity;
 import com.example.fptproject.scrollView.IntroScrollViewActivity;
 
 import java.util.List;
-
 public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMenuViewHolder> {
     private List<HomeMenu> homeMenuList;
 
     public HomeMenuAdapter(List<HomeMenu> homeMenuList) {
         this.homeMenuList = homeMenuList;
-    }
-
-    private Context context;
-
-    public HomeMenuAdapter(Context context) {
-        this.context = context;
     }
 
     @NonNull
@@ -48,7 +42,16 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMe
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, IntroScrollViewActivity.class);
+                switch (position) {
+                    case 0:
+                        v.getContext().startActivity(new Intent(v.getContext(), IntroScrollViewActivity.class));
+                        break;
+                    case 1:
+                        v.getContext().startActivity(new Intent(v.getContext(), IntroScrollViewActivity.class));
+                        break;
+                    case 2:
+                        v.getContext().startActivity(new Intent(v.getContext(), GuideScrollViewActivity.class));
+                }
             }
         });
     }
