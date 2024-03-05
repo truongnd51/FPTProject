@@ -18,21 +18,21 @@
             android:theme="@style/Apptheme"/>
         <activity
             android:name=".scrollView.IntroScrollViewActivity"
-            android:exported="true"
-            android:theme="@style/Apptheme">
+            android:exported="false"
+            android:theme="@style/Apptheme"/>
+
+        <activity
+            android:name=".uis.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".uis.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".uis.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".uis.LoginActivity"
-            android:exported="true"/>
-
 
         <activity
             android:name=".uis.MainActivity"
