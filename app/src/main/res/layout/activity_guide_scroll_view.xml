@@ -6,4 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".scrollView.GuideScrollViewActivity">
 
+
+    <ScrollView
+        android:id="@+id/Guide_ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints"
+        android:scrollbars="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hướng dẫn đặt khám"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bước 1: Tải và cài đặt ứng dụng"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mở kho ứng dụng trên thiết bị di động của bạn (Google Play Store cho Android hoặc App Store cho iOS).
+               \nTìm kiếm ‘MedF - Đặt lịch khám bệnh’ trong cửa hàng ứng dụng.
+               \nChọn ứng dụng chính xác và nhấn vào nút ‘Tải xuống’ hoặc ‘Cài đặt’ để tải và cài đặt ứng dụng lên điện thoại của bạn.
+"
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bước 2: Đăng ký tài khoản"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mở ứng dụng MedF sau khi cài đặt thành công.
+               \nNhấn vào nút ‘Đăng ký’ để bắt đầu quá trình đăng ký.
+               \nĐiền các thông tin cá nhân yêu cầu, bao gồm tên, số điện thoại, địa chỉ email, tài khoản và mật khẩu.
+               \nSau khi điền đầy đủ thông tin, nhấn vào nút ‘Đăng ký’ để hoàn tất quá trình đăng ký."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bước 3: Đặt lịch khám"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sau khi đăng nhập vào ứng dụng, bạn sẽ được đưa đến màn hình chính.
+               \nChọn đặt khám.
+               \nChọn bác sĩ, bạn có thể xem lịch trình khám bệnh của họ và chọn thời gian phù hợp.
+               \nChọn ngày và giờ khám bệnh từ lịch trình sẵn có và nhấn vào nút ‘Đặt lịch’ hoặc ‘Đăng ký khám bệnh’ để xác nhận lịch hẹn.
+               \nKiểm tra lại thông tin lịch hẹn và các chi tiết khác một lần nữa trước khi xác nhận."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bước 4: Xem lịch sử và thông báo"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sau khi đặt lịch hẹn thành công, bạn sẽ nhận được thông báo xác nhận qua ứng dụng.
+               \nBạn có thể xem lịch sử các lịch hẹn đã đặt trong ‘Phiếu Khám’.
+               \nNếu cần, bạn cũng có thể hủy hoặc chỉnh sửa lịch hẹn trong ‘Phiếu Khám’."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bước 5: Đến khám bệnh"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đến địa chỉ được chỉ định vào ngày và giờ đã đặt."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
