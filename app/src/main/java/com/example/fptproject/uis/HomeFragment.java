@@ -112,6 +112,7 @@ public class HomeFragment extends Fragment {
         mViewPager = view.findViewById(R.id.view_pager_home);
         mAdapter = new ImagePaperAdapter(requireContext(), mImageIds);
         mViewPager.setAdapter(mAdapter);
+
         return view;
     }
 }
