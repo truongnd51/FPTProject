@@ -2,6 +2,7 @@ package com.example.fptproject.scrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -27,8 +28,12 @@ public class IntroScrollViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new HomeFragment();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.intro_scroll_view, fragment).commit();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                //fragmentTransaction.addToBackStack(null);
+                //fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                fragmentTransaction.commit();
             }
         });
     }

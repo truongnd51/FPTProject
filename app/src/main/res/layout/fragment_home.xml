@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uis.HomeFragment">
+    tools:context=".uis.HomeFragment"
+    tools:ignore="ExtraText">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/v2"
         android:layout_width="match_parent"
@@ -12,17 +13,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
     <!-- TODO: Update blank fragment layout -->
-
+    <LinearLayout
+        android:id="@+id/bg_up"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/blue"
+        tools:ignore="MissingConstraints">
+    </LinearLayout>
     <ImageView
         android:id="@+id/logo_button_home"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="17dp"
-        android:background="@drawable/circle_bg"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/Hello_sen"
@@ -36,6 +43,7 @@
         app:layout_constraintStart_toEndOf="@+id/logo_button_home"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,6 +53,7 @@
         android:text="to MedF!"
         app:layout_constraintStart_toEndOf="@+id/Hello_sen"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <SearchView
         android:id="@+id/search_service"
@@ -62,29 +71,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_button_home" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Home_menu_option"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_margin="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/search_service"/>
+        android:orientation="vertical"
+        android:paddingTop="150dp"
+        tools:ignore="MissingConstraints">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager_home"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:paddingLeft="17dp"
-        android:paddingRight="17dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/Home_menu_option"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Home_menu_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_margin="15dp"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Home_doctor_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_margin="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/view_pager_home"/>
+            app:layout_constraintTop_toBottomOf="@+id/search_service"/>
 
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager_home"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:paddingLeft="17dp"
+            android:paddingRight="17dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/Home_menu_option"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Home_doctor_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_margin="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/view_pager_home"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

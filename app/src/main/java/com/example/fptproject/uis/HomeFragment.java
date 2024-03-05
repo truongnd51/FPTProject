@@ -89,6 +89,8 @@ public class HomeFragment extends Fragment {
         list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
         list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
         list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR E"));
+        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR F"));
         return list;
     }
 

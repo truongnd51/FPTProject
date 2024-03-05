@@ -6,4 +6,6 @@
     <color name="colorPrimary">#00bfff</color>
     <color name="colorPrimaryDark">#1e90ff</color>
     <color name="colorAccent">#fffaf0</color>
+    <color name="blue">#87CEFA</color>
+    <color name="recycleBg">#f0f8ff</color>
 </resources>
