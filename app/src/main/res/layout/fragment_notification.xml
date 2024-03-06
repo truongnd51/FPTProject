@@ -5,9 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".uis.NotificationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="70dp"
+        android:background="@color/button">
+        <ImageView
+            android:id="@+id/back_button_noti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:paddingTop="9dp"
+            android:paddingLeft="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DANH SÁCH THÔNG BÁO"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:textSize="27dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/tintuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tin tức"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/gray"/>
+        <Button
+            android:id="@+id/thongbao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông báo"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/gray"/>
+    </LinearLayout>
 </FrameLayout>

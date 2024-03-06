@@ -24,6 +24,7 @@ public class IntroScrollViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_scroll_view);
         this.scrollView = findViewById(R.id.intro_scroll_view);
+        getSupportActionBar().hide();
         img = findViewById(R.id.back_button);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
