@@ -13,6 +13,7 @@ import android.widget.ScrollView;
 
 import com.example.fptproject.R;
 import com.example.fptproject.uis.HomeFragment;
+import com.example.fptproject.uis.MainActivity;
 
 public class IntroScrollViewActivity extends AppCompatActivity {
 
@@ -27,13 +28,8 @@ public class IntroScrollViewActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new HomeFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                //fragmentTransaction.addToBackStack(null);
-                //fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                fragmentTransaction.commit();
+                Intent intent = new Intent(IntroScrollViewActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
