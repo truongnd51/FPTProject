@@ -1,5 +1,7 @@
 package com.example.fptproject.uis;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.fptproject.R;
@@ -25,6 +28,8 @@ public class UserFragment extends Fragment {
     TextView tv_name;
     DBHelper dbHelper;
     PatientRepository patientRepository;
+    Button button;
+    IClickLogOut iClickLogOut;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,5 +85,29 @@ public class UserFragment extends Fragment {
         dbHelper = new DBHelper(getContext());
         patientRepository = new PatientRepository(dbHelper);
         tv_name.setText(patientRepository.getNamePatient(PrefManager.getString(getContext(), "username")));
+        button = view.findViewById(R.id.logoutButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                PrefManager.removeKey(getContext(),"username");
+                if(iClickLogOut!=null){
+                    iClickLogOut.onClick();
+                }
+            }
+        });
+    }
+    public interface IClickLogOut{
+        void onClick();
+    }
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof IClickLogOut) {
+            iClickLogOut = (IClickLogOut) context;
+        }else {
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
+        }
     }
 }

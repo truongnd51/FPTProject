@@ -18,7 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserFragment.IClickLogOut {
     BottomNavigationView bnvMain;
 
     @SuppressLint("MissingInflatedId")
@@ -45,5 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 NavigationUI.setupWithNavController(bnvMain, navController);
             }
         }
+    }
+
+    @Override
+    public void onClick() {
+        finish();
     }
 }
