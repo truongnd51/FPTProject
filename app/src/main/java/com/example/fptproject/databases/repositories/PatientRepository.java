@@ -1,6 +1,7 @@
 package com.example.fptproject.databases.repositories;
 
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -58,6 +59,22 @@ public class PatientRepository {
         if (newRowId == -1) {
             System.out.println("Failed to add patient to the database.");
         }
+    }
+    @SuppressLint("Range")
+    public String getNamePatient(String username) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery = "SELECT " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + COLUMN_USERNAME + " = ?";
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{username});
+        String name = null;
+
+        if (cursor.moveToFirst()) {
+            name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
+        }
+
+        cursor.close();
+        db.close();
+
+        return name;
     }
 
 

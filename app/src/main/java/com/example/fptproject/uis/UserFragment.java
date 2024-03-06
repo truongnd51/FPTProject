@@ -2,13 +2,19 @@ package com.example.fptproject.uis;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.fptproject.R;
+import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.PatientRepository;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,9 @@ import com.example.fptproject.R;
  * create an instance of this fragment.
  */
 public class UserFragment extends Fragment {
+    TextView tv_name;
+    DBHelper dbHelper;
+    PatientRepository patientRepository;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +71,14 @@ public class UserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tv_name= view.findViewById(R.id.nameTextView);
+        dbHelper = new DBHelper(getContext());
+        patientRepository = new PatientRepository(dbHelper);
+        tv_name.setText(patientRepository.getNamePatient(PrefManager.getString(getContext(), "username")));
     }
 }

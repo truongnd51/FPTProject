@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username=edtUsername.getText().toString().trim();
                 String password=edtPassword.getText().toString().trim();
                 if(username.length()!=0 && password.length()!=0){
-                    if(doctorRepository.checkDoctor(username,password)||patientRepository.checkPatient(username,password)){
+                    if(patientRepository.checkPatient(username,password)){
                         Toast.makeText(LoginActivity.this, "successful"+username+password, Toast.LENGTH_SHORT).show();
                         PrefManager.saveString(LoginActivity.this,"username",username);
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
