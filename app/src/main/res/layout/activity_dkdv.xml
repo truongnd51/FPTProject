@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".scrollView.DKDVActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/button"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/back_button_DKDV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:paddingTop="9dp"
+            android:paddingLeft="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chính sách bảo mật"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/DKDV_ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints"
+        android:scrollbars="vertical"
+        android:layout_marginTop="70dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giới thiệu"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chào mừng bạn đến với phần mềm MedF - Đặt lịch khám bệnh (gọi chung là 'Phần mềm') được vận hành bởi công ty cổ phần ứng dụng PKH (gọi chung là 'chúng tôi' hoặc 'của chúng tôi'). Chúng tôi nghiêm túc thực hiện trách nhiệm của mình liên quan đến bảo mật thông tin theo các quy định về bảo vệ bí mật thông tin cá nhân của pháp luật Việt Nam và cam kết tôn trọng quyền riêng tư và sự quan tâm của tất cả người dùng đối với Phần mềm (chúng tôi gọi các dịch vụ chúng tôi cung cấp trên Phần mềm là “Các Dịch Vụ”). Chúng tôi nhận biết tầm quan trọng của dữ liệu cá nhân mà bạn đã tin tưởng giao cho chúng tôi và tin rằng chúng tôi có trách nhiệm quản lý, bảo vệ và xử lý dữ liệu cá nhân của bạn một cách thích hợp. Chính Sách Bảo Mật này (“Chính Sách Bảo Mật” hay “Chính Sách”) được thiết kế để giúp bạn hiểu được cách thức chúng tôi thu thập, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân mà bạn đã cung cấp cho chúng tôi và/hoặc lưu giữ về bạn, cho dù là hiện nay hoặc trong tương lai, cũng như để giúp bạn đưa ra quyết định đúng trước khi cung cấp cho chúng tôi bất kỳ dữ liệu cá nhân nào của bạn. Vui lòng đọc kỹ Chính Sách Bảo Mật này."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bảo mật"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi sẽ/có thể thu thập dữ liệu cá nhân về bạn khi:
+                    \nBạn đăng ký và/hoặc sử dụng Các Dịch Vụ hoặc truy cập Phần mềm của chúng tôi, hoặc tạo một tài khoản với chúng tôi;
+                    \nBạn gửi bất kỳ biểu mẫu nào, bao gồm nhưng không giới hạn ở bảng đăng ký hoặc các bảng khác liên quan đến bất kỳ tiện ích và dịch vụ nào của chúng tôi, bằng hình thức trực tuyến trên Phần mềm hay dưới hình thức khác;
+                    \nBạn ký kết bất kỳ thỏa thuận nào hoặc cung cấp các tài liệu hoặc thông tin khác liên quan đến tương tác giữa bạn với chúng tôi, hoặc khi bạn sử dụng các tiện ích và dịch vụ của chúng tôi;
+                    \nBạn tương tác với chúng tôi, chẳng hạn như thông qua các cuộc gọi điện thoại (có thể được ghi âm lại), thư từ, fax, gặp gỡ trực tiếp, các nền ứng dụng truyền thông xã hội và email;
+                    \nBạn sử dụng các dịch vụ điện tử của chúng tôi, hoặc tương tác với chúng tôi qua Phần mềm của chúng tôi hoặc sử dụng các dịch vụ trên Phần mềm của chúng tôi. Trường hợp này bao gồm, nhưng không giới hạn, thông qua tập tin cookie mà chúng tôi có thể triển khai khi bạn tương tác với các ứng dụng hoặc Phần mềm của chúng tôi;
+                    \nBạn thực hiện các giao dịch thông qua Phần mềm hoặc sử dụng các Dịch Vụ của chúng tôi;
+                    \nBạn cung cấp ý kiến phản hồi hoặc gửi khiếu nại cho chúng tôi;
+                    \nBạn gửi dữ liệu cá nhân của bạn cho chúng tôi vì bất kỳ lý do gì.
+                    \nTrên đây chỉ là một số trường hợp phổ biến mà chúng tôi thu thập dữ liệu cá nhân của bạn, không phản ánh hết toàn bộ các trường hợp mà chúng tôi sẽ thu thập dữ liệu cá nhân của bạn."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giới hạn về quyền sử dụng"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dữ liệu cá nhân mà chúng tôi có thể thu thập bao gồm, nhưng không giới hạn:
+                    \nhọ tên;
+                    \ngiới tính;
+                    \nngày tháng năm sinh;
+                    \nđịa chỉ của bạn;
+                    \nphương thức thanh toán của bạn;
+                    \nsố điện thoại;
+                    \nđịa chỉ email;
+                    \nbất kỳ thông tin nào khác về bạn khi bạn đăng nhập và sử dụng Các Dịch Vụ hoặc Phần mềm của chúng tôi, và khi bạn sử dụng Các Dịch Vụ hoặc Phần mềm, cũng như thông tin về việc bạn sử dụng Các Dịch Vụ hoặc Phần mềm của chúng tôi như thế nào; và
+                    \ndữ liệu tổng hợp về nội dung bạn sử dụng.
+                    \nNếu bạn không muốn chúng tôi thu thập thông tin/dữ liệu cá nhân nói trên, bạn có thể chọn không tham gia vào bất kỳ lúc nào bằng cách thông báo đến Nhân Viên Bảo Vệ Dữ Liệu của chúng tôi qua email info@medpro.vn. Bạn có thể tìm thấy thêm thông tin về nội dung trong mục “Bạn có thể rút tên, xóa tên, yêu cầu truy cập hoặc điều chỉnh thông tin bạn đã cung cấp cho chúng tôi bằng cách nào?” dưới đây. Tuy nhiên, lưu ý rằng việc rút tên ra khỏi quy trình thu thập dữ liệu cá nhân của bạn hoặc việc hủy bỏ cho phép chúng tôi thu thập, sử dụng hoặc xử lý dữ liệu cá nhân của bạn có thể ảnh hưởng đến việc bạn sử dụng Các Dịch Vụ trên Phần mềm của chúng tôi."
+                android:paddingLeft="10dp"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

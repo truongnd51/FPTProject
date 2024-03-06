@@ -29,5 +29,14 @@
         android:id="@+id/userFragment"
         android:name="com.example.fptproject.uis.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_CSBMActivity"
+            app:destination="@id/CSBMActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/CSBMActivity"
+        android:name="com.example.fptproject.scrollView.CSBMActivity"
+        android:label="activity_csbm"
+        tools:layout="@layout/activity_csbm" />
 </navigation>

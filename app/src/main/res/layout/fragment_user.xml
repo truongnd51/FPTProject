@@ -67,6 +67,7 @@
             android:textStyle="bold"
             android:textSize="20dp"/>
         <Button
+            android:id="@+id/button_qdsd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quy định sử dụng"
@@ -74,6 +75,7 @@
             android:backgroundTint="@color/white"
             android:textColor="@color/black" />
         <Button
+            android:id="@+id/button_csbm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chính sách bảo mật"
@@ -81,6 +83,7 @@
             android:backgroundTint="@color/white"
             android:textColor="@color/black" />
         <Button
+            android:id="@+id/button_dkdv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Điều khoản dịch vụ"

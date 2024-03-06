@@ -13,15 +13,19 @@
         android:theme="@style/Theme.FPTProject"
         tools:targetApi="31">
         <activity
+            android:name=".scrollView.DKDVActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scrollView.CSBMActivity"
+            android:exported="false" />
+        <activity
             android:name=".scrollView.GuideScrollViewActivity"
             android:exported="false"
-            android:theme="@style/Apptheme"/>
-
+            android:theme="@style/Apptheme" />
         <activity
             android:name=".scrollView.IntroScrollViewActivity"
             android:exported="false"
-            android:theme="@style/Apptheme">
-        </activity>
+            android:theme="@style/Apptheme" />
         <activity
             android:name=".uis.RegisterActivity"
             android:exported="false" />
@@ -30,6 +34,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
