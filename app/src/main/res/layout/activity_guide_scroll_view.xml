@@ -6,7 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".scrollView.GuideScrollViewActivity">
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/button"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/back_button_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:paddingTop="9dp"
+            android:paddingLeft="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hướng dẫn đặt khám"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
     <ScrollView
         android:id="@+id/Guide_ScrollView"
         android:layout_width="match_parent"
@@ -14,7 +34,8 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         tools:ignore="MissingConstraints"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:paddingTop="70dp">
 
 
         <LinearLayout
@@ -24,13 +45,8 @@
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hướng dẫn đặt khám"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="30dp"/>
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
