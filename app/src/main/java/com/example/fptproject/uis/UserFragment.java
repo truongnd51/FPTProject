@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,8 @@ public class UserFragment extends Fragment {
     PatientRepository patientRepository;
     Button button;
     IClickLogOut iClickLogOut;
+    Button button_csbm;
+    Button button_qdsd;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,10 +86,26 @@ public class UserFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tv_name= view.findViewById(R.id.nameTextView);
+        button_csbm = view.findViewById(R.id.button_csbm);
+        button_qdsd = view.findViewById(R.id.button_qdsd);
         dbHelper = new DBHelper(getContext());
         patientRepository = new PatientRepository(dbHelper);
         tv_name.setText(patientRepository.getNamePatient(PrefManager.getString(getContext(), "username")));
         button = view.findViewById(R.id.logoutButton);
+        button_qdsd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController= NavHostFragment.findNavController(UserFragment.this);
+                navController.navigate(R.id.action_userFragment_to_QDSDActivity);
+            }
+        });
+        button_csbm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController= NavHostFragment.findNavController(UserFragment.this);
+                navController.navigate(R.id.action_userFragment_to_CSBMActivity);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -33,10 +33,18 @@
         <action
             android:id="@+id/action_userFragment_to_CSBMActivity"
             app:destination="@id/CSBMActivity" />
+        <action
+            android:id="@+id/action_userFragment_to_QDSDActivity"
+            app:destination="@id/QDSDActivity" />
     </fragment>
     <activity
         android:id="@+id/CSBMActivity"
         android:name="com.example.fptproject.scrollView.CSBMActivity"
         android:label="activity_csbm"
         tools:layout="@layout/activity_csbm" />
+    <activity
+        android:id="@+id/QDSDActivity"
+        android:name="com.example.fptproject.scrollView.QDSDActivity"
+        android:label="activity_qdsd"
+        tools:layout="@layout/activity_qdsd" />
 </navigation>

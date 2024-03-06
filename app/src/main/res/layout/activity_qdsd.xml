@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".scrollView.QDSDActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/button"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/back_button_usage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:paddingTop="9dp"
+            android:paddingLeft="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QUY ĐỊNH SỬ DỤNG"
+            android:textStyle="bold"
+            android:textSize="27dp"
+            android:paddingLeft="45dp"
+            android:paddingTop="3dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/usage_rule_scroll_view"
+        android:layout_marginTop="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Mục đích"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ứng dụng này cung cấp dịch vụ hỗ trợ sức khỏe và quản lý lịch hẹn tại bệnh viện cho người dùng.
+                \nCác tính năng bao gồm đặt lịch hẹn, xem kết quả khám, tìm kiếm thông tin bác sĩ và các dịch vụ y tế khác."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Điều kiện sử dụng"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Người dùng phải tuân thủ luật pháp hiện hành khi sử dụng ứng dụng này.
+                \nỨng dụng này không được sử dụng cho mục đích y tế khẩn cấp. Trong trường hợp khẩn cấp, vui lòng gọi số cấp cứu địa phương."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Quyền sở hữu"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ứng dụng này là tài sản của phòng khám và được bảo vệ bởi bản quyền.
+                \nMọi nội dung và thông tin trong ứng dụng đều thuộc quyền sở hữu của phòng khám."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. Bảo Mật Và Quyền Riêng Tư"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn và sử dụng chúng chỉ cho mục đích y tế.
+                \nThông tin y tế của bạn sẽ được bảo mật và không được tiết lộ cho bất kỳ bên thứ ba nào mà không có sự đồng ý của bạn."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. Thỏa Thuận và Từ Chối Trách Nhiệm"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Việc sử dụng ứng dụng này được xem là đồng ý với các điều khoản và điều kiện đã nêu trên.
+                \nPhòng khám không chịu trách nhiệm về việc sử dụng ứng dụng này ngoài phạm vi được quy định."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. Cập Nhật và Thay Đổi"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi có quyền cập nhật và thay đổi các điều khoản và điều kiện sử dụng mà không cần thông báo trước.
+                \nBạn được khuyến nghị kiểm tra thường xuyên để cập nhật thông tin mới nhất."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7. Liên Hệ"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Để báo cáo sự cố hoặc yêu cầu hỗ trợ, vui lòng liên hệ qua địa chỉ email support@hospitalapp.com."
+                android:textSize="18dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8. Thỏa Thuận Pháp Lý"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mọi tranh chấp phát sinh từ việc sử dụng ứng dụng này sẽ được giải quyết theo luật pháp hiện hành của quốc gia."
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
