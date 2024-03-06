@@ -24,6 +24,7 @@ public class GuideScrollViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide_scroll_view);
         this.scrollView = findViewById(R.id.Guide_ScrollView);
+        getSupportActionBar().hide();
         img = findViewById(R.id.back_button_guide);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
