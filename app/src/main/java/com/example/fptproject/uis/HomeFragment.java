@@ -97,30 +97,31 @@ public class HomeFragment extends Fragment {
 //        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR F"));
 //        return list;
 //    }
-private List<HomeMenuDoctor> getDoctorList() {
-    List<HomeMenuDoctor> list = new ArrayList<>();
 
-    // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
-    DBHelper dbHelper = new DBHelper(getContext());
-    SQLiteDatabase db = dbHelper.getReadableDatabase();
-    String query = "SELECT doctor_name FROM Doctor";
-    Cursor cursor = db.rawQuery(query, null);
+    private List<HomeMenuDoctor> getDoctorList() {
+        List<HomeMenuDoctor> list = new ArrayList<>();
 
-    // Xử lý dữ liệu và thêm vào danh sách
-    if (cursor.moveToFirst()) {
-        do {
-            @SuppressLint("Range")
-            String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
-            list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
-        } while (cursor.moveToNext());
+        // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
+        DBHelper dbHelper = new DBHelper(getContext());
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "SELECT doctor_name FROM Doctor";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // Xử lý dữ liệu và thêm vào danh sách
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range")
+                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
+                list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
+            } while (cursor.moveToNext());
+        }
+
+        // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
+        cursor.close();
+        dbHelper.close();
+
+        return list;
     }
-
-    // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
-    cursor.close();
-    dbHelper.close();
-
-    return list;
-}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

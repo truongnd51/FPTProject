@@ -20,6 +20,13 @@ public class Doctor {
         this.image = image;
     }
 
+    public Doctor(String doctorName, String doctorEmail, String doctorPhone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+
     public String getName() {
         return name;
     }

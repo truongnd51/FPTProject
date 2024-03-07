@@ -47,19 +47,19 @@ CREATE TABLE Report (
 );
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor A", "truong", "truong","truong@gmail.com", "0386713388",NULL);
+VALUES ("Nguyen Van A", "truong", "truong","truong@gmail.com", "0386713388",NULL);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor B", "truong2", "truong","truong2@gmail.com", "0386713387",NULL);
+VALUES ("Tran Van B", "truong2", "truong","truong2@gmail.com", "0386713387",NULL);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor C", "truong4", "truong","truong3@gmail.com", "0386713386",NULL);
+VALUES ("Dang Van C", "truong4", "truong","truong3@gmail.com", "0386713386",NULL);
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor D", "truong5", "truong","truong3@gmail.com", "0386713386",NULL);
+VALUES ("Nguyen Thi D", "truong5", "truong","truong4@gmail.com", "0386713385",NULL);
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor E", "truong6", "truong","truong3@gmail.com", "0386713386",NULL);
+VALUES ("Nguyen Duy E", "truong6", "truong","truong5@gmail.com", "0386713384",NULL);
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Doctor F", "truong7", "truong","truong3@gmail.com", "0386713386",NULL);
+VALUES ("Nguyen Van F", "truong7", "truong","truong6@gmail.com", "0386713383",NULL);
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380");

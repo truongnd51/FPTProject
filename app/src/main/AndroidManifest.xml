@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FPTProject"
         tools:targetApi="31">
         <activity
+            android:name=".uis.DoctorChooseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorChooseActivity"
+            android:exported="false" />
+        <activity
             android:name=".scrollView.QDSDActivity"
             android:exported="false" />
         <activity

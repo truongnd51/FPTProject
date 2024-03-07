@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.fptproject.uis.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_doctorChooseFragment"
+            app:destination="@id/doctorChooseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hoSoFragment"
         android:name="com.example.fptproject.uis.HoSoFragment"
@@ -47,4 +51,9 @@
         android:name="com.example.fptproject.scrollView.QDSDActivity"
         android:label="activity_qdsd"
         tools:layout="@layout/activity_qdsd" />
+    <fragment
+        android:id="@+id/doctorChooseFragment"
+        android:name="com.example.fptproject.uis.DoctorChooseFragment"
+        android:label="fragment_doctor_choose"
+        tools:layout="@layout/fragment_doctor_choose" />
 </navigation>
