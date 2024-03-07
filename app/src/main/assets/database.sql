@@ -47,16 +47,38 @@ CREATE TABLE Report (
 );
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Duy Truong", "truong", "truong","truong@gmail.com", "0386713388",NULL);
+VALUES ("Doctor A", "truong", "truong","truong@gmail.com", "0386713388",NULL);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Duy Truong2", "truong2", "truong","truong2@gmail.com", "0386713387",NULL);
+VALUES ("Doctor B", "truong2", "truong","truong2@gmail.com", "0386713387",NULL);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
-VALUES ("Duy Truong3", "truong3", "truong","truong3@gmail.com", "0386713386",NULL);
+VALUES ("Doctor C", "truong4", "truong","truong3@gmail.com", "0386713386",NULL);
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+VALUES ("Doctor D", "truong5", "truong","truong3@gmail.com", "0386713386",NULL);
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+VALUES ("Doctor E", "truong6", "truong","truong3@gmail.com", "0386713386",NULL);
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+VALUES ("Doctor F", "truong7", "truong","truong3@gmail.com", "0386713386",NULL);
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380");
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("DT", "DT", "truong","dt@gmail.com", "0386713382");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Thoái hóa cột sống cổ", "Đau tại vị trí thoái hóa, đau tay, tay tê bì.");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Thoái hóa cột sống lưng", "Đau tại vị trí thoái hóa (Đau lưng) đau lưng, tê chân, ngồi lâu sẽ bị mỏi, buốt lưng");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Thoát vị đĩa đệm", "Đau tại vị trí thoái hóa (Đau lưng) đau lưng, tê chân, ngồi lâu sẽ bị mỏi, buốt lưng");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Đau dây thần kinh liên sườn", "Đau quanh lồng ngực, thay đổi tư thế bị đau");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Viêm quanh khớp vai", "Đau vai, tay, khó giơ tay khi mặc áo");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Đau đầu, đau nửa đầu", "Đau đầu");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Thiểu năng tuần hoàn não", "Đau đầu, tê bì đầu, tê tay");
+INSERT INTO Disease (disease_name, disease_description)
+VALUES ("Hen mãn tính", "Khó thở, thở gấp");

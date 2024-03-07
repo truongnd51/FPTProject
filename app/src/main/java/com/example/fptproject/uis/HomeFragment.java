@@ -1,5 +1,8 @@
 package com.example.fptproject.uis;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.fptproject.R;
 import com.example.fptproject.banner.ImagePaperAdapter;
+import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.models.HomeMenuAdapter;
 import com.example.fptproject.models.HomeMenuDoctor;
@@ -83,16 +87,40 @@ public class HomeFragment extends Fragment {
         list.add(new HomeMenu(R.drawable.ic_action_guide, "Guide"));
         return list;
     }
-    private List<HomeMenuDoctor> getDoctorList(){
-        List<HomeMenuDoctor> list = new ArrayList<>();
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR A"));
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR E"));
-        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR F"));
-        return list;
+//    private List<HomeMenuDoctor> getDoctorList(){
+//        List<HomeMenuDoctor> list = new ArrayList<>();
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR A"));
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR E"));
+//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR F"));
+//        return list;
+//    }
+private List<HomeMenuDoctor> getDoctorList() {
+    List<HomeMenuDoctor> list = new ArrayList<>();
+
+    // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
+    DBHelper dbHelper = new DBHelper(getContext());
+    SQLiteDatabase db = dbHelper.getReadableDatabase();
+    String query = "SELECT doctor_name FROM Doctor";
+    Cursor cursor = db.rawQuery(query, null);
+
+    // Xử lý dữ liệu và thêm vào danh sách
+    if (cursor.moveToFirst()) {
+        do {
+            @SuppressLint("Range")
+            String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
+            list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
+        } while (cursor.moveToNext());
     }
+
+    // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
+    cursor.close();
+    dbHelper.close();
+
+    return list;
+}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
