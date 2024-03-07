@@ -1,6 +1,7 @@
 package com.example.fptproject.models;
 
 public class Doctor {
+    int id;
     String name;
     String username;
     String password;
@@ -9,6 +10,16 @@ public class Doctor {
     String image;
 
     public Doctor() {
+    }
+
+    public Doctor(int id, String name, String username, String password, String email, String phone, String image) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.image = image;
     }
 
     public Doctor(String name, String username, String password, String email, String phone, String image) {
@@ -26,6 +37,13 @@ public class Doctor {
         this.phone = phone;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

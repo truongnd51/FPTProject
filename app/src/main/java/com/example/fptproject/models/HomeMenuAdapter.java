@@ -1,17 +1,10 @@
 package com.example.fptproject.models;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,12 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fptproject.R;
-import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.scrollView.GuideScrollViewActivity;
 import com.example.fptproject.scrollView.IntroScrollViewActivity;
-import com.example.fptproject.uis.DoctorChooseActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMenuViewHolder> {
     private List<HomeMenu> homeMenuList;
@@ -53,9 +43,7 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMe
             public void onClick(View v) {
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(v.getContext(), DoctorChooseActivity.class);
-//                        intent.putExtra("doctorList", new ArrayList<>(getDoctorList()));
-//                        v.getContext().startActivity(intent);
+                        v.getContext().startActivity(new Intent(v.getContext(), IntroScrollViewActivity.class));
                         break;
                     case 1:
                         v.getContext().startActivity(new Intent(v.getContext(), IntroScrollViewActivity.class));
