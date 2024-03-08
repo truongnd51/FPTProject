@@ -14,9 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
 import com.example.fptproject.banner.ImagePaperAdapter;
 import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.models.Doctor;
 import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.models.HomeMenuAdapter;
 import com.example.fptproject.models.HomeMenuDoctor;
@@ -30,7 +32,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements DoctorChooseInterface {
 
     private RecyclerView recyclerView;
     private RecyclerView recyclerView1;
@@ -98,8 +100,8 @@ public class HomeFragment extends Fragment {
 //        return list;
 //    }
 
-    private List<HomeMenuDoctor> getDoctorList() {
-        List<HomeMenuDoctor> list = new ArrayList<>();
+    private List<Doctor> getDoctorList() {
+        List<Doctor> list = new ArrayList<>();
 
         // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
         DBHelper dbHelper = new DBHelper(getContext());
@@ -111,8 +113,8 @@ public class HomeFragment extends Fragment {
         if (cursor.moveToFirst()) {
             do {
                 @SuppressLint("Range")
-                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
-                list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
+                String doctorName = cursor.getString(cursor.getColumnIndex(" doctor_name"));
+                list.add(new Doctor(doctorName));
             } while (cursor.moveToNext());
         }
 
@@ -145,5 +147,10 @@ public class HomeFragment extends Fragment {
         mViewPager.setAdapter(mAdapter);
 
         return view;
+    }
+
+    @Override
+    public void onClickDoctor(Doctor doctor) {
+
     }
 }

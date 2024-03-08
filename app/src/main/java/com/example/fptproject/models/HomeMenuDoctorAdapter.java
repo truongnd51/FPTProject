@@ -9,15 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
 
 import java.util.List;
 
 public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAdapter.HomeMenuDoctorViewHolder>{
-    private List<HomeMenuDoctor> homeMenuDoctors;
+    private List<Doctor> doctorList;
 
-    public HomeMenuDoctorAdapter(List<HomeMenuDoctor> homeMenuDoctors) {
-        this.homeMenuDoctors = homeMenuDoctors;
+    private DoctorChooseInterface doctorChooseInterface;
+    public HomeMenuDoctorAdapter(List<Doctor> doctorList) {
+        this.doctorList = doctorList;
     }
 
     @NonNull
@@ -29,18 +31,23 @@ public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAd
 
     @Override
     public void onBindViewHolder(@NonNull HomeMenuDoctorViewHolder holder, int position) {
-        HomeMenuDoctor doctor = homeMenuDoctors.get(position);
+        Doctor doctor = doctorList.get(position);
         if (doctor == null){
             return;
         }
-        holder.img.setImageResource(doctor.getImgDoc());
-        holder.tv.setText(doctor.getNameDoc());
+        holder.tv.setText(doctor.getName());
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorChooseInterface.onClickDoctor(doctor);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        if(homeMenuDoctors != null){
-            return homeMenuDoctors.size();
+        if(doctorList != null){
+            return doctorList.size();
         }
         return 0;
     }
