@@ -26,7 +26,7 @@ public class Doctor {
         this.image = image;
     }
 
-    public Doctor(String name, String username, String password, String email, String phone, String image) {
+    public Doctor(String name) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -39,10 +39,6 @@ public class Doctor {
         this.name = doctorName;
         this.email = doctorEmail;
         this.phone = doctorPhone;
-    }
-
-    public Doctor(String doctorName) {
-        this.name = doctorName;
     }
 
     public int getId() {

@@ -100,8 +100,8 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
 //        return list;
 //    }
 
-    private List<Doctor> getDoctorList() {
-        List<Doctor> list = new ArrayList<>();
+    private List<HomeMenuDoctor> getDoctorList() {
+        List<HomeMenuDoctor> list = new ArrayList<>();
 
         // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
         DBHelper dbHelper = new DBHelper(getContext());
@@ -113,8 +113,8 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         if (cursor.moveToFirst()) {
             do {
                 @SuppressLint("Range")
-                String doctorName = cursor.getString(cursor.getColumnIndex(" doctor_name"));
-                list.add(new Doctor(doctorName));
+                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
+                list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
             } while (cursor.moveToNext());
         }
 
