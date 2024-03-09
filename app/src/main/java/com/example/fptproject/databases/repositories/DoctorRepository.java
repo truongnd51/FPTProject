@@ -81,4 +81,62 @@ public class DoctorRepository {
         }
         return list;
     }
+    /*
+    doctor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    doctor_name TEXT,
+    doctor_username TEXT,
+    doctor_password TEXT,
+    doctor_price TEXT,
+    doctor_email TEXT,
+    doctor_phone TEXT,
+    doctor_description TEXT,
+    doctor_image TEXT
+     */
+    @SuppressLint("Range")
+    public Doctor getDoctorByDoctorId(int id){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] projection = {
+                "doctor_id",
+                "doctor_name",
+                "doctor_username",
+                "doctor_password",
+                "doctor_price",
+                "doctor_email",
+                "doctor_phone",
+                "doctor_description",
+                "doctor_image"
+        };
+        String selection = "doctor_id = ?";
+        String[] selectionArgs = { id+"" };
+
+        Cursor cursor = db.query(
+                "Doctor",           // Tên bảng
+                projection,       // Các cột bạn muốn lấy
+                selection,        // Mệnh đề WHERE
+                selectionArgs,    // Đối số cho mệnh đề WHERE
+                null,
+                null,
+                null
+        );
+        Doctor doctor = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            // Đảm bảo rằng con trỏ có ít nhất một dòng trước khi cố gắng truy xuất dữ liệu
+            doctor = new Doctor(
+                    cursor.getInt(cursor.getColumnIndex("doctor_id")),
+                    cursor.getString(cursor.getColumnIndex("doctor_name")),
+                    cursor.getString(cursor.getColumnIndex("doctor_username")),
+                    cursor.getString(cursor.getColumnIndex("doctor_password")),
+                    cursor.getString(cursor.getColumnIndex("doctor_price")),
+                    cursor.getString(cursor.getColumnIndex("doctor_email")),
+                    cursor.getString(cursor.getColumnIndex("doctor_phone")),
+                    cursor.getString(cursor.getColumnIndex("doctor_description")),
+                    cursor.getString(cursor.getColumnIndex("doctor_image"))
+            );
+        }
+        // Đóng con trỏ sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
+        return doctor;
+    }
 }

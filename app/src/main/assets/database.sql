@@ -51,19 +51,19 @@ CREATE TABLE Report (
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Nguyen Van A", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Tran Van B","truong2", "truong2", "200.000 VND" ,"truong2@gmail.com", "0386713387", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Dang Van C", "truong3", "truong3", "150.000 VND" ,"truong3@gmail.com", "0386713386", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Nguyen Thi D", "truong4", "truong4", "200.000 VND" ,"truong4@gmail.com", "0386713385", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Nguyen Duy E", "truong5", "truong5", "200.000 VND" ,"truong5@gmail.com", "0386713384", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_email, doctor_phone, doctor_image)
+INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Nguyen Van F", "truong6", "truong6", "150.000 VND" ,"truong6@gmail.com", "0386713383", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
 
 

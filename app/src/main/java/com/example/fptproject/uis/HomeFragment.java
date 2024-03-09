@@ -6,10 +6,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
 import com.example.fptproject.banner.ImagePaperAdapter;
 import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.models.Doctor;
 import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.models.HomeMenuAdapter;
@@ -40,6 +44,9 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
     private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
     private ViewPager mViewPager;
     private ImagePaperAdapter mAdapter;
+    NavController navController;
+    DBHelper dbHelper;
+    DoctorRepository doctorRepository;
 
     private int[] mImageIds = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
     // TODO: Rename parameter arguments, choose names that match
@@ -131,13 +138,15 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.Home_menu_option);
+        dbHelper=new DBHelper(getContext());
+        doctorRepository = new DoctorRepository(dbHelper);
+        navController= NavHostFragment.findNavController(HomeFragment.this);
         homeMenuAdapter = new HomeMenuAdapter(getList());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(homeMenuAdapter);
-
         recyclerView1 = view.findViewById(R.id.Home_doctor_list);
-        homeMenuDoctorAdapter = new HomeMenuDoctorAdapter(getDoctorList());
+        homeMenuDoctorAdapter = new HomeMenuDoctorAdapter(doctorRepository.getAll(),HomeFragment.this);
         GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getContext(), 2);
         recyclerView1.setLayoutManager(gridLayoutManager1);
         recyclerView1.setAdapter(homeMenuDoctorAdapter);
@@ -151,6 +160,8 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
 
     @Override
     public void onClickDoctor(Doctor doctor) {
-
+        Bundle bundle=new Bundle();
+        bundle.putInt("doctor_id", doctor.getId());
+        navController.navigate(R.id.action_homeFragment_to_doctorInfoActivity,bundle);
     }
 }

@@ -63,43 +63,43 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-    public boolean add(User user){
-        if(user!=null){
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(USERNAME,user.getUsername());
-            contentValues.put(PASSWORD,user.getPassword());
-            long response=db.insert(TABLE_NAME,null,contentValues);
-            db.close();
-            if (response > -1) {
-                return true;
-            }
-            return  false;
-        }
-        return false;
-    }
-    public List<User> getAllUser() {
-        String statement = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(statement, null);
-
-        List<User> list = new ArrayList<>();
-
-        while (cursor.moveToNext()) {
-            list.add(new User(cursor.getString(0),
-                    cursor.getString(1)));
-        }
-        return list;
-    }
-    public boolean check(User user) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {USERNAME};
-        String selection = USERNAME + " = ? AND " + PASSWORD + " = ?";
-        String[] selectionArgs = {user.getUsername(), user.getPassword()};
-        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
-        int count = cursor.getCount();
-        cursor.close();
-        db.close();
-        return count > 0;
-    }
+//    public boolean add(User user){
+//        if(user!=null){
+//            SQLiteDatabase db = this.getWritableDatabase();
+//            ContentValues contentValues = new ContentValues();
+//            contentValues.put(USERNAME,user.getUsername());
+//            contentValues.put(PASSWORD,user.getPassword());
+//            long response=db.insert(TABLE_NAME,null,contentValues);
+//            db.close();
+//            if (response > -1) {
+//                return true;
+//            }
+//            return  false;
+//        }
+//        return false;
+//    }
+//    public List<User> getAllUser() {
+//        String statement = "SELECT * FROM " + TABLE_NAME;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(statement, null);
+//
+//        List<User> list = new ArrayList<>();
+//
+//        while (cursor.moveToNext()) {
+//            list.add(new User(cursor.getString(0),
+//                    cursor.getString(1)));
+//        }
+//        return list;
+//    }
+//    public boolean check(User user) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String[] columns = {USERNAME};
+//        String selection = USERNAME + " = ? AND " + PASSWORD + " = ?";
+//        String[] selectionArgs = {user.getUsername(), user.getPassword()};
+//        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+//        int count = cursor.getCount();
+//        cursor.close();
+//        db.close();
+//        return count > 0;
+//    }
 }

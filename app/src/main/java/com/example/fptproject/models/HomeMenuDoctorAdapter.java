@@ -4,20 +4,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
 
 import java.util.List;
 
 public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAdapter.HomeMenuDoctorViewHolder>{
-    private List<HomeMenuDoctor> homeMenuDoctors;
+    private List<Doctor> list;
+    DoctorChooseInterface doctorChooseInterface;
 
-    public HomeMenuDoctorAdapter(List<HomeMenuDoctor> homeMenuDoctors) {
-        this.homeMenuDoctors = homeMenuDoctors;
+    public HomeMenuDoctorAdapter(List<Doctor> list, DoctorChooseInterface doctorChooseInterface) {
+        this.list = list;
+        this.doctorChooseInterface = doctorChooseInterface;
     }
 
     @NonNull
@@ -29,18 +33,23 @@ public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAd
 
     @Override
     public void onBindViewHolder(@NonNull HomeMenuDoctorViewHolder holder, int position) {
-        HomeMenuDoctor doctor = homeMenuDoctors.get(position);
+        Doctor doctor = list.get(position);
         if (doctor == null){
             return;
         }
-        holder.img.setImageResource(doctor.getImgDoc());
-        holder.tv.setText(doctor.getNameDoc());
+        holder.tv.setText(doctor.getName());
+        holder.llDoctorItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doctorChooseInterface.onClickDoctor(doctor);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        if(homeMenuDoctors != null){
-            return homeMenuDoctors.size();
+        if(list != null){
+            return list.size();
         }
         return 0;
     }
@@ -48,10 +57,12 @@ public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAd
     public class HomeMenuDoctorViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
         private TextView tv;
+        private LinearLayout llDoctorItem;
         public HomeMenuDoctorViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.img_doctor);
             tv = itemView.findViewById(R.id.doctor_name);
+            llDoctorItem=itemView.findViewById(R.id.llDoctorItem);
         }
     }
 }

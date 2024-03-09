@@ -1,16 +1,13 @@
 package com.example.fptproject.models;
 
 public class Patient {
-
     String username;
     String password;
     String name;
     String email;
     String phone;
-
     public Patient() {
     }
-
     public Patient(String username, String password, String name, String email, String phone) {
         this.username = username;
         this.password = password;
@@ -18,7 +15,6 @@ public class Patient {
         this.email = email;
         this.phone = phone;
     }
-
     public String getUsername() {
         return username;
     }
