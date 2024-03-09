@@ -5,18 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.models.Doctor;
+import com.example.fptproject.scrollView.IntroScrollViewActivity;
 
 public class DoctorInfoActivity extends AppCompatActivity {
     Intent intent;
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     TextView tvName,tvEmail,tvPhone,tvDes,tvPrice;
+    private ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,21 @@ public class DoctorInfoActivity extends AppCompatActivity {
         tvPhone.setText("Số điện thoại: "+doctor.getPhone());
         tvDes.setText("Kinh nghiệm: "+doctor.getDescription());
         tvPrice.setText("Giá: "+doctor.getPrice());
+        img = findViewById(R.id.back_button_doctor);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DoctorInfoActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
         tvName=findViewById(R.id.title_name);
         tvEmail=findViewById(R.id.title_email);
         tvPhone=findViewById(R.id.tittle_phone);
-        tvDes=findViewById(R.id.title_des);
+        tvDes=findViewById(R.id.des);
         tvPrice=findViewById(R.id.title_price);
     }
 }
