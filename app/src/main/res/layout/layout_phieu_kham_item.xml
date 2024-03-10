@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvNameDoctor"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvPhoneDoctor"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvNamePatient"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvPhonePatient"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvNgayPhieuKham"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvGioPhieuKham"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvBenhPhieuKham"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvGiaPhieuKham"
+        android:text="ho ten bac si"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

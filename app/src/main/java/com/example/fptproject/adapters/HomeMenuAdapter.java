@@ -1,4 +1,4 @@
-package com.example.fptproject.models;
+package com.example.fptproject.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fptproject.R;
+import com.example.fptproject.models.HomeMenu;
 import com.example.fptproject.scrollView.GuideScrollViewActivity;
 import com.example.fptproject.scrollView.IntroScrollViewActivity;
 import com.example.fptproject.uis.BookingAcitivty;

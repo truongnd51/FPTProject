@@ -61,6 +61,7 @@ public class BookingAcitivty extends AppCompatActivity {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Date currentTime = calendar.getTime();
         String time = timeFormat.format(currentTime);
+        //khi bam vao icon datepicker
         imgOpenDatePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,9 +84,11 @@ public class BookingAcitivty extends AppCompatActivity {
                                 listTime.add("15:00-16:00");
                                 listTime.add("16:00-17:00");
                                 List<String> timeInDB = bookingRepository.listGioByDoctorAndDate(doctorId,selectedDate);
+                                //remove nhung giờ đã dc đặt
                                 for (String time : timeInDB){
                                     listTime.remove(time);
                                 }
+
                                 ArrayAdapter<String> adapterGio = new ArrayAdapter<>(BookingAcitivty.this, android.R.layout.simple_spinner_item,listTime);
                                 adapterGio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spGio.setAdapter(adapterGio);
@@ -143,6 +146,7 @@ public class BookingAcitivty extends AppCompatActivity {
         diseaseRepository =new DiseaseRepository(dbHelper);
         patientRepository=new PatientRepository(dbHelper);
         List<String> listDoctorName= doctorRepository.getListDoctorName();
+        //set du lieu cho spinner
         ArrayAdapter<String> adapterDoctor = new ArrayAdapter<>(BookingAcitivty.this, android.R.layout.simple_spinner_item,listDoctorName);
         adapterDoctor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDoctor.setAdapter(adapterDoctor);

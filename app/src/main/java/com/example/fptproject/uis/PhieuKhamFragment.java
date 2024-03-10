@@ -2,13 +2,32 @@ package com.example.fptproject.uis;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fptproject.R;
+import com.example.fptproject.adapters.PhieuKhamAdapter;
+import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.BookingRepository;
+import com.example.fptproject.databases.repositories.DiseaseRepository;
+import com.example.fptproject.databases.repositories.DoctorRepository;
+import com.example.fptproject.databases.repositories.PatientRepository;
+import com.example.fptproject.models.Booking;
+import com.example.fptproject.models.Disease;
+import com.example.fptproject.models.Doctor;
+import com.example.fptproject.models.Patient;
+import com.example.fptproject.models.PhieuKham;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +40,13 @@ public class PhieuKhamFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    RecyclerView rcv;
+    DBHelper dbHelper;
+    DoctorRepository doctorRepository;
+    PatientRepository patientRepository;
+    BookingRepository bookingRepository;
+    DiseaseRepository diseaseRepository;
+    PhieuKhamAdapter phieuKhamAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,5 +88,33 @@ public class PhieuKhamFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_phieu_kham, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(view);
+        List<PhieuKham> list =new ArrayList<>();
+        List<Booking> listBook = bookingRepository.getAllBookingByPatientId(patientRepository.getPatientIdByPatientUsername(PrefManager.getString(getContext(),"username")));
+        for(Booking booking : listBook){
+            Doctor doctor=doctorRepository.getDoctorByDoctorId(booking.getDoctorId());
+            Patient patient=patientRepository.getPatientByPatientId(booking.getPatientId());
+            String benh=diseaseRepository.getDiseaseNameByDiseaseId(booking.getBenh());
+            PhieuKham phieuKham = new PhieuKham(doctor.getName(), doctor.getPhone(),patient.getName(),patient.getPhone(), booking.getNgay(), booking.getGio(),benh,doctor.getPrice());
+            list.add(phieuKham);
+        }
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        rcv.setLayoutManager(linearLayoutManager);
+        phieuKhamAdapter=new PhieuKhamAdapter(list);
+        rcv.setAdapter(phieuKhamAdapter);
+    }
+
+    private void init(View view) {
+        dbHelper=new DBHelper(getContext());
+        doctorRepository=new DoctorRepository(dbHelper);
+        patientRepository=new PatientRepository(dbHelper);
+        bookingRepository = new BookingRepository(dbHelper);
+        diseaseRepository=new DiseaseRepository(dbHelper);
+        rcv=view.findViewById(R.id.rcvPhieuKham);
     }
 }

@@ -1,5 +1,6 @@
-package com.example.fptproject.models;
+package com.example.fptproject.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
+import com.example.fptproject.models.Doctor;
 
 import java.util.List;
 
 public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAdapter.HomeMenuDoctorViewHolder>{
     private List<Doctor> list;
     DoctorChooseInterface doctorChooseInterface;
+    Context context;
 
-    public HomeMenuDoctorAdapter(List<Doctor> list, DoctorChooseInterface doctorChooseInterface) {
+    public HomeMenuDoctorAdapter(List<Doctor> list, DoctorChooseInterface doctorChooseInterface, Context context) {
         this.list = list;
         this.doctorChooseInterface = doctorChooseInterface;
+        this.context = context;
     }
 
     @NonNull
@@ -38,6 +43,9 @@ public class HomeMenuDoctorAdapter extends RecyclerView.Adapter<HomeMenuDoctorAd
             return;
         }
         holder.tv.setText(doctor.getName());
+        if(doctor.getImage()!=null){
+            Glide.with(context).load(doctor.getImage()).into(holder.img);
+        }
         holder.llDoctorItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -25,28 +25,6 @@ CREATE TABLE Disease (
     disease_description TEXT
 );
 
-CREATE TABLE Schedule (
-    schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    patient_id INTEGER,
-    doctor_id INTEGER,
-    time_start INTEGER,
-    time_end INTEGER,
-    FOREIGN KEY (patient_id) REFERENCES Patient(patient_id),
-    FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id)
-);
-
-CREATE TABLE Report (
-    report_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    doctor_id INTEGER,
-    patient_id INTEGER,
-    disease_id INTEGER,
-    schedule_id INTEGER,
-    is_paid INTEGER,
-    FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id),
-    FOREIGN KEY (patient_id) REFERENCES Patient(patient_id),
-    FOREIGN KEY (disease_id) REFERENCES Disease(disease_id),
-    FOREIGN KEY (schedule_id) REFERENCES Schedule(schedule_id)
-);
 create table Booking(
     doctor_id INTEGER,
     patient_id INTEGER,
@@ -63,7 +41,7 @@ insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)
 values(1,2,"14-03-2024","8:00-9:00",2);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Nguyen Van A", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Nguyen Van A", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://watermark.lovepik.com/photo/20211201/large/lovepik-male-doctor-image-picture_501367339.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Tran Van B","truong2", "truong2", "200.000 VND" ,"truong2@gmail.com", "0386713387", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);

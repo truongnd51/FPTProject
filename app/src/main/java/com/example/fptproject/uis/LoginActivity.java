@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(PrefManager.getString(this,"username") != null ){
-            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+        if (PrefManager.getString(this, "username") != null) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
     }
@@ -46,36 +46,34 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        dbHelper=new DBHelper(this);
-        doctorRepository=new DoctorRepository(dbHelper);
-        patientRepository=new PatientRepository(dbHelper);
-        edtUsername=findViewById(R.id.edtUsername);
-        edtPassword=findViewById(R.id.edtPassword);
-        btnLogin=findViewById(R.id.btnLogin);
-        btnRegister=findViewById(R.id.btnRegister);
+        dbHelper = new DBHelper(this);
+        doctorRepository = new DoctorRepository(dbHelper);
+        patientRepository = new PatientRepository(dbHelper);
+        edtUsername = findViewById(R.id.edtUsername);
+        edtPassword = findViewById(R.id.edtPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username=edtUsername.getText().toString().trim();
-                String password=edtPassword.getText().toString().trim();
-                if(username.length()!=0 && password.length()!=0){
-                    if(patientRepository.checkPatient(username,password)){
-                        Toast.makeText(LoginActivity.this, "successful"+username+password, Toast.LENGTH_SHORT).show();
-                        PrefManager.saveString(LoginActivity.this,"username",username);
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    }
-                    else{
+                String username = edtUsername.getText().toString().trim();
+                String password = edtPassword.getText().toString().trim();
+                if (username.length() != 0 && password.length() != 0) {
+                    if (patientRepository.checkPatient(username, password) || doctorRepository.checkDoctor(username, password)) {
+                        Toast.makeText(LoginActivity.this, "successful" + username + password, Toast.LENGTH_SHORT).show();
+                        PrefManager.saveString(LoginActivity.this, "username", username);
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
                         Toast.makeText(LoginActivity.this, "mk deo dung", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
+                } else {
                     Toast.makeText(LoginActivity.this, "Nhap", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -38,6 +38,32 @@ public class PatientRepository {
         return count > 0;
     }
     @SuppressLint("Range")
+    public Patient getPatientByPatientId(int patientId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Patient patient = null;
+        String[] columns = {"patient_name", "patient_username", "patient_password", "patient_email", "patient_phone"};
+        String selection = "patient_id=?";
+        String[] selectionArgs = {String.valueOf(patientId)};
+
+        Cursor cursor = db.query("Patient", columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String name = cursor.getString(cursor.getColumnIndex("patient_name"));
+            String username = cursor.getString(cursor.getColumnIndex("patient_username"));
+            String password = cursor.getString(cursor.getColumnIndex("patient_password"));
+            String email = cursor.getString(cursor.getColumnIndex("patient_email"));
+            String phone = cursor.getString(cursor.getColumnIndex("patient_phone"));
+
+            patient = new Patient(patientId, name, username, password, email, phone);
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return patient;
+    }
+    @SuppressLint("Range")
     public int getPatientIdByPatientUsername(String username) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         int patientId = -1; // Giá trị mặc định nếu không tìm thấy

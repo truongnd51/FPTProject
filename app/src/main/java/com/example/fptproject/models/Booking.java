@@ -5,7 +5,7 @@ public class Booking {
     int patientId;
     String ngay;
     String gio;
-    String benh;
+    int benh;
 
     public int getDoctorId() {
         return doctorId;
@@ -42,15 +42,15 @@ public class Booking {
         this.gio = gio;
     }
 
-    public String getBenh() {
+    public int getBenh() {
         return benh;
     }
 
-    public void setBenh(String benh) {
+    public void setBenh(int benh) {
         this.benh = benh;
     }
 
-    public Booking(int doctorId, int patientId, String ngay, String gio, String benh) {
+    public Booking(int doctorId, int patientId, String ngay, String gio, int benh) {
         this.doctorId = doctorId;
         this.patientId = patientId;
         this.ngay = ngay;
