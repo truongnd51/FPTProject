@@ -41,22 +41,22 @@ insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)
 values(1,2,"14-03-2024","8:00-9:00",2);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Nguyen Van A", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://watermark.lovepik.com/photo/20211201/large/lovepik-male-doctor-image-picture_501367339.jpg");
+VALUES ("Lưu Sinh Cơ", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/168-Luu-Sinh-Co.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Tran Van B","truong2", "truong2", "200.000 VND" ,"truong2@gmail.com", "0386713387", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Trần Đức Tuấn","truong2", "truong2", "200.000 VND" ,"truong2@gmail.com", "0386713387", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/03/bs-Tran-Duc-Tuan.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Dang Van C", "truong3", "truong3", "150.000 VND" ,"truong3@gmail.com", "0386713386", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Mai Hồng Vân", "truong3", "truong3", "150.000 VND" ,"truong3@gmail.com", "0386713386", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/317-Mai-Hong-Van.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Nguyen Thi D", "truong4", "truong4", "200.000 VND" ,"truong4@gmail.com", "0386713385", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Nguyễn Tuấn Anh", "truong4", "truong4", "200.000 VND" ,"truong4@gmail.com", "0386713385", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/309-Nguyen-Tuan-Anh.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Nguyen Duy E", "truong5", "truong5", "200.000 VND" ,"truong5@gmail.com", "0386713384", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Đỗ Thị Hương", "truong5", "truong5", "200.000 VND" ,"truong5@gmail.com", "0386713384", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/228-Do-Thi-Huong-2.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Nguyen Van F", "truong6", "truong6", "150.000 VND" ,"truong6@gmail.com", "0386713383", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,NULL);
+VALUES ("Nguyễn Thị Nga", "truong6", "truong6", "150.000 VND" ,"truong6@gmail.com", "0386713383", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/12-Nguyen-Thi-Nga-2.jpg");
 
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)

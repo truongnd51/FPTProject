@@ -11,17 +11,26 @@
         android:weightSum="10"
         android:layout_height="match_parent">
         <LinearLayout
-            android:background="@color/blue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="70dp"
+            android:background="@color/button"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/back_button_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back"
+                android:paddingTop="9dp"
+                android:paddingLeft="5dp"/>
             <TextView
-                android:text="Phieu kham"
-                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PHIẾU KHÁM"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textSize="40sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:paddingRight="10dp"
+                android:textSize="30dp"
+                android:textColor="@color/white"/>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvPhieuKham"

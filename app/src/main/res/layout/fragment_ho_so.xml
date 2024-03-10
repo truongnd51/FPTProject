@@ -7,28 +7,36 @@
     android:orientation="vertical"
     tools:context=".uis.HoSoFragment">
     <LinearLayout
-        android:background="@color/blue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="70dp"
+        android:background="@color/button"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/back_button_hoso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:paddingTop="9dp"
+            android:paddingLeft="5dp"/>
         <TextView
-            android:text="Hồ sơ"
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HỒ SƠ"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="40sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:paddingRight="20dp"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:background="@color/white"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Name:"
             android:textColor="@color/blue"
             android:textStyle="bold"
@@ -39,20 +47,18 @@
             android:text="ho va ten"
             android:id="@+id/tvNameHoSo"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout
-        android:background="@color/white"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Email:"
             android:textColor="@color/blue"
             android:textStyle="bold"
@@ -63,23 +69,20 @@
             android:text="ho va ten"
             android:id="@+id/tvEmailHoSo"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout
-        android:background="@color/white"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="Phone:"
             android:textColor="@color/blue"
-            android:textStyle="bold"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
@@ -87,8 +90,7 @@
             android:text="ho va ten"
             android:id="@+id/tvPhoneHoSo"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
@@ -97,28 +99,27 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="horizontal">
         <TextView
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:layout_margin="5dp"
             android:textColor="@color/blue"
-            android:text="Cap nhat thong tin"
+            android:text="Cập nhập thông tin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
-        android:orientation="horizontal">
-        <TextView
-            android:textSize="25dp"
-            android:layout_margin="5dp"
-            android:textColor="@color/white"
-            android:text="doi mat khau"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/blue"-->
+<!--        android:orientation="horizontal">-->
+<!--        <TextView-->
+<!--            android:textSize="25dp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="doi mat khau"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </LinearLayout>-->
 </LinearLayout>

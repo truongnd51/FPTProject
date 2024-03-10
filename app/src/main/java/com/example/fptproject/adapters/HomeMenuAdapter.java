@@ -66,35 +66,6 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.HomeMe
         return 0;
     }
 
-//    private List<Doctor> getDoctorList() {
-//        List<Doctor> list = new ArrayList<>();
-//
-//        // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
-//        DBHelper dbHelper = new DBHelper(this);
-//        SQLiteDatabase db = dbHelper.getReadableDatabase();
-//        String query = "SELECT doctor_name, doctor_email, doctor_phone FROM Doctor";
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        // Xử lý dữ liệu và thêm vào danh sách
-//        if (cursor.moveToFirst()) {
-//            do {
-//                @SuppressLint("Range")
-//                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
-//                @SuppressLint("Range")
-//                String doctorEmail = cursor.getString(cursor.getColumnIndex("doctor_email"));
-//                @SuppressLint("Range")
-//                String doctorPhone = cursor.getString(cursor.getColumnIndex("doctor_phone"));
-//                list.add(new Doctor(doctorName,doctorEmail,doctorPhone));
-//            } while (cursor.moveToNext());
-//            Log.d(list.toString(),"12345");
-//        }
-//
-//        // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
-//        cursor.close();
-//        dbHelper.close();
-//
-//        return list;
-//    }
 
     public class HomeMenuViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
