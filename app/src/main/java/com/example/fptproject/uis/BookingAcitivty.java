@@ -48,8 +48,6 @@ public class BookingAcitivty extends AppCompatActivity {
     BookingRepository bookingRepository;
     DiseaseRepository diseaseRepository;
     PatientRepository patientRepository;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
