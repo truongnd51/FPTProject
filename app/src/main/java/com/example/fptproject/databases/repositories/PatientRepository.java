@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 
 import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.models.Doctor;
 import com.example.fptproject.models.Patient;
 
 
@@ -36,6 +37,27 @@ public class PatientRepository {
         // Trả về true nếu có ít nhất một kết quả trả về từ câu truy vấn
         return count > 0;
     }
+    @SuppressLint("Range")
+    public int getPatientIdByPatientUsername(String username) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        int patientId = -1; // Giá trị mặc định nếu không tìm thấy
+
+        String[] columns = {"patient_id"};
+        String selection = "patient_username=?";
+        String[] selectionArgs = {username};
+
+        Cursor cursor = db.query("Patient", columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            patientId = cursor.getInt(cursor.getColumnIndex("patient_id"));
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return patientId;
+    }
     public void addPatient(String username, String password, String name, String email, String phone) {
         Patient patient = new Patient(username, password, name, email, phone);
         addPatient(patient);
@@ -61,7 +83,7 @@ public class PatientRepository {
         }
     }
     @SuppressLint("Range")
-    public String getNamePatient(String username) {
+    public String getNamePatientByUsername(String username) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery = "SELECT " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + COLUMN_USERNAME + " = ?";
         Cursor cursor = db.rawQuery(selectQuery, new String[]{username});
@@ -75,6 +97,46 @@ public class PatientRepository {
         db.close();
 
         return name;
+    }
+    public Patient getPatientByPatientUsername(String username){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] projection = {
+                "patient_id",
+                "patient_name",
+                "patient_username",
+                "patient_password",
+                "patient_email",
+                "patient_phone"
+        };
+        String selection = "patient_username LIKE ?";
+        String[] selectionArgs = { username };
+
+        Cursor cursor = db.query(
+                "Patient",           // Tên bảng
+                projection,       // Các cột bạn muốn lấy
+                selection,        // Mệnh đề WHERE
+                selectionArgs,    // Đối số cho mệnh đề WHERE
+                null,
+                null,
+                null
+        );
+        Patient patient=null;
+        if (cursor != null && cursor.moveToFirst()) {
+            // Đảm bảo rằng con trỏ có ít nhất một dòng trước khi cố gắng truy xuất dữ liệu
+            patient = new Patient(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+        }
+        // Đóng con trỏ sau khi sử dụng
+        if (cursor != null) {
+            cursor.close();
+        }
+        return patient;
     }
 
 

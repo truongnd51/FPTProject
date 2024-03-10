@@ -90,7 +90,7 @@ public class UserFragment extends Fragment {
         button_qdsd = view.findViewById(R.id.button_qdsd);
         dbHelper = new DBHelper(getContext());
         patientRepository = new PatientRepository(dbHelper);
-        tv_name.setText(patientRepository.getNamePatient(PrefManager.getString(getContext(), "username")));
+        tv_name.setText(patientRepository.getNamePatientByUsername(PrefManager.getString(getContext(), "username")));
         button = view.findViewById(R.id.logoutButton);
         button_qdsd.setOnClickListener(new View.OnClickListener() {
             @Override

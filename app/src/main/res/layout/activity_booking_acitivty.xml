@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uis.BookingAcitivty">
+    android:orientation="vertical"
+    tools:context=".uis.HoSoFragment">
+    <LinearLayout
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Dat lich kham"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Chon bac si:"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <Spinner
+            android:id="@+id/spDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Chon ngay:"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:textSize="20dp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/edtNgay"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <ImageButton
+            android:id="@+id/btnOpenDatePicker"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="Chọn ngày"
+            android:src="@drawable/calender_icon"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Chon gio:"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <Spinner
+            android:id="@+id/spGio"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Chon loai benh:"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <Spinner
+            android:id="@+id/spBenh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"/>
+    </LinearLayout>
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xac nhan dat lich kham"
+        android:layout_gravity="center"/>
+</LinearLayout>

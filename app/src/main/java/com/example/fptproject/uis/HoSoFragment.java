@@ -2,13 +2,22 @@ package com.example.fptproject.uis;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.fptproject.R;
+import com.example.fptproject.databases.DBHelper;
+import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.DoctorRepository;
+import com.example.fptproject.databases.repositories.PatientRepository;
+import com.example.fptproject.models.Doctor;
+import com.example.fptproject.models.Patient;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +34,10 @@ public class HoSoFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    DBHelper dbHelper;
+    DoctorRepository doctorRepository;
+    PatientRepository patientRepository;
+    TextView tvName,tvEmail,tvPhone;
 
     public HoSoFragment() {
         // Required empty public constructor
@@ -62,5 +75,28 @@ public class HoSoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ho_so, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        String username= PrefManager.getString(getContext(),"username");
+        dbHelper=new DBHelper(getContext());
+        tvName=view.findViewById(R.id.tvNameHoSo);
+        tvEmail=view.findViewById(R.id.tvEmailHoSo);
+        tvPhone=view.findViewById(R.id.tvPhoneHoSo);
+        doctorRepository=new DoctorRepository(dbHelper);
+        patientRepository=new PatientRepository(dbHelper);
+        if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
+            Doctor doctor=doctorRepository.getDoctorByDoctorUsername(username);
+            tvName.setText(doctor.getName());
+            tvPhone.setText(doctor.getPhone());
+            tvEmail.setText(doctor.getEmail());
+        }else{
+            Patient patient = patientRepository.getPatientByPatientUsername(username);
+            tvName.setText(patient.getName());
+            tvPhone.setText(patient.getPhone());
+            tvEmail.setText(patient.getEmail());
+        }
     }
 }
