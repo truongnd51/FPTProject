@@ -20,7 +20,6 @@ public class DKDVActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dkdv);
         this.scrollView = findViewById(R.id.DKDV_ScrollView);
-        getSupportActionBar().hide();
         img = findViewById(R.id.back_button_DKDV);
         img.setOnClickListener(new View.OnClickListener() {
             @Override

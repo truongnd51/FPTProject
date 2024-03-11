@@ -47,6 +47,7 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
     IClickLogOut iClickLogOut;
     Button button_csbm;
     Button button_qdsd;
+    Button button_dkdv;
     Button button_call;
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
@@ -136,6 +137,7 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
         tv_name= view.findViewById(R.id.nameTextView);
         button_csbm = view.findViewById(R.id.button_csbm);
         button_qdsd = view.findViewById(R.id.button_qdsd);
+        button_dkdv = view.findViewById(R.id.button_dkdv);
         dbHelper = new DBHelper(getContext());
         patientRepository = new PatientRepository(dbHelper);
         tv_name.setText(patientRepository.getNamePatientByUsername(PrefManager.getString(getContext(), "username")));
@@ -152,6 +154,13 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 NavController navController= NavHostFragment.findNavController(UserFragment.this);
                 navController.navigate(R.id.action_userFragment_to_CSBMActivity);
+            }
+        });
+        button_dkdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController= NavHostFragment.findNavController(UserFragment.this);
+                navController.navigate(R.id.action_userFragment_to_DKDVActivity);
             }
         });
         button.setOnClickListener(new View.OnClickListener() {

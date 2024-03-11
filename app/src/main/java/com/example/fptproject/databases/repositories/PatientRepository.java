@@ -182,6 +182,20 @@ public class PatientRepository {
 
         return exists;
     }
+    public void UpdatePatientByUsername(String username, String newPassword, String newName, String newEmail, String newPhone) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PASSWORD, newPassword);
+        values.put(COLUMN_NAME, newName);
+        values.put(COLUMN_EMAIL, newEmail);
+        values.put(COLUMN_PHONE, newPhone);
+
+        String selection = COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+
+        db.update(TABLE_NAME, values, selection, selectionArgs);
+    }
 
 
 }

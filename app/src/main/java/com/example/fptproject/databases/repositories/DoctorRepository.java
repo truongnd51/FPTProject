@@ -1,6 +1,7 @@
 package com.example.fptproject.databases.repositories;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -12,8 +13,15 @@ import java.util.List;
 
 public class DoctorRepository {
     private final String TABLE_NAME = "Doctor";
-    private final String COLUMN_USERNAME = "doctor_username";
-    private final String COLUMN_PASSWORD = "doctor_password";
+    private static final String COLUMN_ID = "doctor_id";
+    private static final String COLUMN_NAME = "doctor_name";
+    private static final String COLUMN_USERNAME = "doctor_username";
+    private static final String COLUMN_PASSWORD = "doctor_password";
+    private static final String COLUMN_PRICE = "doctor_price";
+    private static final String COLUMN_EMAIL = "doctor_email";
+    private static final String COLUMN_PHONE = "doctor_phone";
+    private static final String COLUMN_DESCRIPTION = "doctor_description";
+    private static final String COLUMN_IMAGE = "doctor_image";
     private DBHelper dbHelper;
     public DoctorRepository(DBHelper dbHelper) {
         this.dbHelper = dbHelper;
@@ -71,37 +79,7 @@ public class DoctorRepository {
 
         return doctorId;
     }
-//    public List<Doctor> getDoctorList() {
-//        List<Doctor> list = new ArrayList<>();
-//
-//        // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
-//        SQLiteDatabase db = dbHelper.getReadableDatabase();
-//        String query = "SELECT * FROM Doctor";
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        // Xử lý dữ liệu và thêm vào danh sách
-//        if (cursor.moveToFirst()) {
-//            do {
-//                @SuppressLint("Range")
-//                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
-//                @SuppressLint("Range") String doctorUsername = cursor.getString(cursor.getColumnIndex("doctor_username"));
-//                @SuppressLint("Range") String doctorPassword = cursor.getString(cursor.getColumnIndex("doctor_password"));
-//                @SuppressLint("Range")
-//                String doctorEmail = cursor.getString(cursor.getColumnIndex("doctor_email"));
-//                @SuppressLint("Range")
-//                String doctorPhone = cursor.getString(cursor.getColumnIndex("doctor_phone"));
-//                @SuppressLint("Range")
-//                String doctorImage = cursor.getString(cursor.getColumnIndex("doctor_image"));
-//                list.add(new Doctor(doctorName,doctorEmail,doctorPhone));
-//            } while (cursor.moveToNext());
-//        }
-//
-//        // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
-//        cursor.close();
-//        dbHelper.close();
-//
-//        return list;
-//    }
+
     public List<Doctor> getAll() {
         String statement = "SELECT * FROM " + "Doctor";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -227,4 +205,21 @@ public class DoctorRepository {
         }
         return doctor;
     }
+    public void UpdateDoctorByUsername(String username, String newPassword, String newName, String newEmail, String newPhone) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PASSWORD, newPassword);
+        values.put(COLUMN_NAME, newName);
+        values.put(COLUMN_EMAIL, newEmail);
+        values.put(COLUMN_PHONE, newPhone);
+
+        String selection = COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+
+        db.update(TABLE_NAME, values, selection, selectionArgs);
+
+        db.close();
+    }
+
 }

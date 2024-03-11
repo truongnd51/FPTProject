@@ -21,7 +21,11 @@
         android:id="@+id/hoSoFragment"
         android:name="com.example.fptproject.uis.HoSoFragment"
         android:label="fragment_ho_so"
-        tools:layout="@layout/fragment_ho_so" />
+        tools:layout="@layout/fragment_ho_so" >
+        <action
+            android:id="@+id/action_hoSoFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.fptproject.uis.NotificationFragment"
@@ -43,6 +47,9 @@
         <action
             android:id="@+id/action_userFragment_to_QDSDActivity"
             app:destination="@id/QDSDActivity" />
+        <action
+            android:id="@+id/action_userFragment_to_DKDVActivity"
+            app:destination="@id/DKDVActivity" />
     </fragment>
     <activity
         android:id="@+id/CSBMActivity"
@@ -64,4 +71,18 @@
         android:name="com.example.fptproject.uis.DoctorInfoActivity"
         android:label="activity_doctor_info"
         tools:layout="@layout/activity_doctor_info" />
+    <activity
+        android:id="@+id/DKDVActivity"
+        android:name="com.example.fptproject.scrollView.DKDVActivity"
+        android:label="activity_dkdv"
+        tools:layout="@layout/activity_dkdv" />
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.fptproject.uis.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_hoSoFragment"
+            app:destination="@id/hoSoFragment" />
+    </fragment>
 </navigation>
