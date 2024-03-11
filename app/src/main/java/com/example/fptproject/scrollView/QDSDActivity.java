@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import com.example.fptproject.R;
+import com.example.fptproject.uis.MainActivity;
 import com.example.fptproject.uis.UserFragment;
 
 public class QDSDActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class QDSDActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QDSDActivity.this, UserFragment.class);
+                Intent intent = new Intent(QDSDActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

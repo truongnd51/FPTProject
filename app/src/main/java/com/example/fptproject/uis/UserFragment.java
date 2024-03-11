@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
     IClickLogOut iClickLogOut;
     Button button_csbm;
     Button button_qdsd;
+    Button button_call;
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
     private GoogleMap gMap;
@@ -161,6 +163,16 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
                 if(iClickLogOut!=null){
                     iClickLogOut.onClick();
                 }
+            }
+        });
+        button_call = view.findViewById(R.id.call);
+        button_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = "0386713388";
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel: " + phoneNumber));
+                startActivity(intent);
             }
         });
     }
