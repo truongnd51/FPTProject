@@ -1,11 +1,15 @@
 package com.example.fptproject.uis;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -16,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
@@ -42,6 +47,7 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
     Button button_csbm;
     Button button_qdsd;
 
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
     private GoogleMap gMap;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,19 +88,44 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.id_map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
-        } else {
-            Log.e("MapFragment", "mapFragment is null");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Quyền được cấp, khởi tạo và hiển thị bản đồ
+                SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                        .findFragmentById(R.id.id_map);
+                mapFragment.getMapAsync(this);
+            } else {
+                // Người dùng không cấp quyền, xử lý tùy ý
+                Toast.makeText(requireContext(), "Bạn cần cấp quyền để truy cập vị trí", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
+
+        // Kiểm tra và yêu cầu quyền truy cập vị trí nếu cần
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Nếu quyền chưa được cấp, yêu cầu quyền từ người dùng
+            ActivityCompat.requestPermissions(requireActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSIONS_REQUEST_LOCATION);
+        } else {
+            // Quyền đã được cấp, khởi tạo và hiển thị bản đồ
+            SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                    .findFragmentById(R.id.id_map);
+            mapFragment.getMapAsync(this);
+        }
+
+        return view;
     }
 
     @Override
@@ -136,9 +167,10 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+        gMap = googleMap;
         LatLng latLng = new LatLng(21.0124, 105.5253);
-        googleMap.addMarker(new MarkerOptions().position(latLng).title("Đại học FPT"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
+        gMap.addMarker(new MarkerOptions().position(latLng).title("Đại học FPT"));
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
     }
 
     public interface IClickLogOut{
