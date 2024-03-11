@@ -99,22 +99,28 @@
             android:textColor="@color/black" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         android:paddingLeft="15dp">
-        <ImageView
-            android:id="@+id/logo_bottom"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/logo" />
-        <TextView
-            android:layout_width="match_parent"
+        <fragment
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đại học FPT"
-            android:textSize="15dp"/>
+            android:id="@+id/id_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+<!--        <ImageView-->
+<!--            android:id="@+id/logo_bottom"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:src="@drawable/logo" />-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Đại học FPT"-->
+<!--            android:textSize="15dp"/>-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

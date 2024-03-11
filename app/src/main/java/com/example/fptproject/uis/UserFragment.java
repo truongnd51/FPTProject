@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +21,19 @@ import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
 import com.example.fptproject.databases.repositories.PatientRepository;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link UserFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserFragment extends Fragment {
+public class UserFragment extends Fragment implements OnMapReadyCallback {
     TextView tv_name;
     DBHelper dbHelper;
     PatientRepository patientRepository;
@@ -34,6 +41,8 @@ public class UserFragment extends Fragment {
     IClickLogOut iClickLogOut;
     Button button_csbm;
     Button button_qdsd;
+
+    private GoogleMap gMap;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +81,12 @@ public class UserFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.id_map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        } else {
+            Log.e("MapFragment", "mapFragment is null");
         }
     }
 
@@ -118,6 +133,14 @@ public class UserFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        LatLng latLng = new LatLng(21.0124, 105.5253);
+        googleMap.addMarker(new MarkerOptions().position(latLng).title("Đại học FPT"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,12));
+    }
+
     public interface IClickLogOut{
         void onClick();
     }

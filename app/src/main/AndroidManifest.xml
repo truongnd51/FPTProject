@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -21,12 +24,6 @@
             android:exported="false" />
         <activity
             android:name=".uis.CalenderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".uis.DoctorChooseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DoctorChooseActivity"
             android:exported="false" />
         <activity
             android:name=".scrollView.QDSDActivity"
@@ -60,6 +57,9 @@
         <activity
             android:name=".uis.MainActivity"
             android:exported="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDsuvg0NL4pxjYLEE_zeoPS9s15lACN3h8"/>
     </application>
 
 </manifest>
