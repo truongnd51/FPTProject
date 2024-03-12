@@ -95,6 +95,13 @@ public class UpdateFragment extends Fragment {
         edt_phone = view.findViewById(R.id.edt_phone);
 
         tv_tk=view.findViewById(R.id.tv_tk);
+        if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
+            Doctor doctor=doctorRepository.getDoctorByDoctorUsername(username);
+            tv_tk.setText(doctor.getUsername());
+        }else{
+            Patient patient = patientRepository.getPatientByPatientUsername(username);
+            tv_tk.setText(patient.getUsername());
+        }
         tv_save=view.findViewById(R.id.tv_save);
         tv_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,11 +111,8 @@ public class UpdateFragment extends Fragment {
                 String newEmail = edt_email.getText().toString();
                 String newPhone = edt_phone.getText().toString();
                 if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
-                    Doctor doctor=doctorRepository.getDoctorByDoctorUsername(username);
-                    tv_tk.setText(doctor.getUsername());
+                    doctorRepository.UpdateDoctorByUsername(username, newPassword, newName, newEmail, newPhone);
                 }else{
-                    Patient patient = patientRepository.getPatientByPatientUsername(username);
-                    tv_tk.setText(patient.getUsername());
                     patientRepository.UpdatePatientByUsername(username, newPassword, newName, newEmail, newPhone);
                 }
                 NavController navController= NavHostFragment.findNavController(UpdateFragment.this);

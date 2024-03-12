@@ -128,9 +128,9 @@ public class PatientRepository {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
                 "patient_id",
-                "patient_name",
                 "patient_username",
                 "patient_password",
+                "patient_name",
                 "patient_email",
                 "patient_phone"
         };

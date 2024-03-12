@@ -26,7 +26,10 @@ import android.widget.Toast;
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.databases.repositories.PatientRepository;
+import com.example.fptproject.models.Doctor;
+import com.example.fptproject.models.Patient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -140,7 +143,15 @@ public class UserFragment extends Fragment implements OnMapReadyCallback {
         button_dkdv = view.findViewById(R.id.button_dkdv);
         dbHelper = new DBHelper(getContext());
         patientRepository = new PatientRepository(dbHelper);
-        tv_name.setText(patientRepository.getNamePatientByUsername(PrefManager.getString(getContext(), "username")));
+        DoctorRepository doctorRepository=new DoctorRepository(dbHelper);
+        String username = PrefManager.getString(getContext(),"username");
+        if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
+            Doctor doctor=doctorRepository.getDoctorByDoctorUsername(username);
+            tv_name.setText(doctor.getName());
+        }else{
+            Patient patient = patientRepository.getPatientByPatientUsername(username);
+            tv_name.setText(patient.getName());
+        }
         button = view.findViewById(R.id.logoutButton);
         button_qdsd.setOnClickListener(new View.OnClickListener() {
             @Override
