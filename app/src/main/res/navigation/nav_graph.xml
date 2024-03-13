@@ -85,4 +85,8 @@
             android:id="@+id/action_updateFragment_to_hoSoFragment"
             app:destination="@id/hoSoFragment" />
     </fragment>
+    <activity
+        android:id="@+id/bookingAcitivty"
+        android:name="com.example.fptproject.uis.BookingAcitivty"
+        android:label="BookingAcitivty" />
 </navigation>

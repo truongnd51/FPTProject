@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Dat lich kham"
+            android:text="Đặt lịch khám"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Chon bac si:"
+            android:text="Chọn bác sĩ:"
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Chon ngay:"
+            android:text="Chọn ngày:"
             android:textStyle="bold"
             android:textColor="@color/blue"
             android:textSize="20dp"
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Chon gio:"
+            android:text="Chọn giờ:"
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -96,7 +96,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Chon loai benh:"
+            android:text="Chọn loại bệnh:"
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -111,6 +111,6 @@
         android:id="@+id/btnConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Xac nhan dat lich kham"
+        android:text="Xác nhận đặt lịch khám"
         android:layout_gravity="center"/>
 </LinearLayout>

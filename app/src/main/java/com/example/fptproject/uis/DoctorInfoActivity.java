@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.repositories.DoctorRepository;
@@ -20,7 +21,7 @@ public class DoctorInfoActivity extends AppCompatActivity {
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     TextView tvName,tvEmail,tvPhone,tvDes,tvPrice;
-    private ImageView img;
+    private ImageView img, imageDoctor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,10 @@ public class DoctorInfoActivity extends AppCompatActivity {
         tvPhone.setText("Số điện thoại: "+doctor.getPhone());
         tvDes.setText("Kinh nghiệm: "+doctor.getDescription());
         tvPrice.setText("Giá: "+doctor.getPrice());
+
+        if(doctor.getImage()!=null){
+            Glide.with(this).load(doctor.getImage()).into(imageDoctor);
+        }
         img = findViewById(R.id.back_button_doctor);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +58,6 @@ public class DoctorInfoActivity extends AppCompatActivity {
         tvPhone=findViewById(R.id.tittle_phone);
         tvDes=findViewById(R.id.des);
         tvPrice=findViewById(R.id.title_price);
+        imageDoctor=findViewById(R.id.image_doctor);
     }
 }

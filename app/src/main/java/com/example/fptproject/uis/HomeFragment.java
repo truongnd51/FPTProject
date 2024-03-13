@@ -95,21 +95,11 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
 
     private List<HomeMenu> getList() {
         List<HomeMenu> list = new ArrayList<>();
-        list.add(new HomeMenu(R.drawable.ic_action_schedule, "Booking"));
-        list.add(new HomeMenu(R.drawable.ic_action_about, "About us"));
-        list.add(new HomeMenu(R.drawable.ic_action_guide, "Guide"));
+        list.add(new HomeMenu(R.drawable.ic_action_schedule, "Đặt lịch"));
+        list.add(new HomeMenu(R.drawable.ic_action_about, "Giới thiệu"));
+        list.add(new HomeMenu(R.drawable.ic_action_guide, "Hướng dẫn"));
         return list;
     }
-//    private List<HomeMenuDoctor> getDoctorList(){
-//        List<HomeMenuDoctor> list = new ArrayList<>();
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR A"));
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR B"));
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR C"));
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR D"));
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR E"));
-//        list.add(new HomeMenuDoctor(R.drawable.doctor, "DOCTOR F"));
-//        return list;
-//    }
 
     private List<HomeMenuDoctor> getDoctorList() {
         List<HomeMenuDoctor> list = new ArrayList<>();

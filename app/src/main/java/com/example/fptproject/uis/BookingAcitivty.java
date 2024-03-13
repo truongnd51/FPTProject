@@ -4,8 +4,15 @@ import static java.security.AccessController.getContext;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -111,6 +118,9 @@ public class BookingAcitivty extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(BookingAcitivty.this, MainActivity.class);
+                startActivity(intent);
+                sendNotification();
                 String name=spDoctor.getSelectedItem().toString().trim();
                 String gio=spGio.getSelectedItem().toString().trim();
                 String ngay=edtNgay.getText().toString().trim();
@@ -120,13 +130,13 @@ public class BookingAcitivty extends AppCompatActivity {
                     int patientId=patientRepository.getPatientIdByPatientUsername(PrefManager.getString(BookingAcitivty.this,"username"));
                     int diseaseId=diseaseRepository.getDiseaseIdByDiseaseName(benh);
                     bookingRepository.addBooking(doctorId,patientId,ngay,gio,diseaseId);
-                    Toast.makeText(BookingAcitivty.this, "Dat lich thanh cong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookingAcitivty.this, "Đặt lịch thành công", Toast.LENGTH_SHORT).show();
                     spDoctor.setSelection(0);
                     edtNgay.setText("");
                     spBenh.setSelection(0);
                     spGio.setSelection(0);
                 }else{
-                    Toast.makeText(BookingAcitivty.this, "Vui long nhap day du thong tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookingAcitivty.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -187,5 +197,26 @@ public class BookingAcitivty extends AppCompatActivity {
         calendar.set(year, month, day);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         return sdf.format(calendar.getTime());
+    }
+
+    private void sendNotification(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+
+        }
+        final String CHANNEL_ID = "001";
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSmallIcon(R.drawable.ic_action_notification)
+                .setContentTitle("Thông báo xác nhận đặt lịch khám thành công _ MedF")
+                .setContentText("Cảm ơn quý khách đã đặt lịch khám tại MedF, lịch khám của quá khách đã được lưu lại và gửi tới bác sĩ, xin quý khách vui lòng đến đúng giờ.");
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, intent, PendingIntent.FLAG_IMMUTABLE);
+        builder.setContentIntent(pendingIntent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "Demo channel", NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+        notificationManager.notify(2, builder.build());
     }
 }
