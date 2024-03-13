@@ -10,13 +10,6 @@
         android:layout_height="70dp"
         android:background="@color/button"
         tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/back_button_usage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back"
-            android:paddingTop="9dp"
-            android:paddingLeft="5dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

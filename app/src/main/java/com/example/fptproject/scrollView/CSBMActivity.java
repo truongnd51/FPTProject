@@ -19,14 +19,6 @@ public class CSBMActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_csbm);
         this.scrollView = findViewById(R.id.CSBM_ScrollView);
-        img = findViewById(R.id.back_button_CSBM);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CSBMActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 }

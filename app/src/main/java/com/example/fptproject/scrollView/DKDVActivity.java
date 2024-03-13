@@ -20,14 +20,5 @@ public class DKDVActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dkdv);
         this.scrollView = findViewById(R.id.DKDV_ScrollView);
-        img = findViewById(R.id.back_button_DKDV);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DKDVActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 }

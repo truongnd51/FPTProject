@@ -20,13 +20,5 @@ public class QDSDActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qdsd);
         this.scrollView = findViewById(R.id.usage_rule_scroll_view);
-        img = findViewById(R.id.back_button_usage);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QDSDActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
