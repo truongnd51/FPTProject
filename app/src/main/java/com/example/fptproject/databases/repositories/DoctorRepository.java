@@ -159,6 +159,27 @@ public class DoctorRepository {
         return doctor;
     }
     @SuppressLint("Range")
+    public int getDoctorIdByDoctorUsername(String username) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        int doctorId = -1; // Giá trị mặc định nếu không tìm thấy
+
+        String[] columns = {"doctor_id"};
+        String selection = "doctor_username=?";
+        String[] selectionArgs = {username};
+
+        Cursor cursor = db.query("Doctor", columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            doctorId = cursor.getInt(cursor.getColumnIndex("doctor_id"));
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return doctorId;
+    }
+    @SuppressLint("Range")
     public Doctor getDoctorByDoctorUsername(String username){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {

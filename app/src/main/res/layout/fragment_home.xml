@@ -114,6 +114,37 @@
                 android:textSize="15sp"
                 android:text="lich trinh"/>
         </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/admin"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="60dp"
+            android:weightSum="10"
+            android:layout_height="60dp">
+            <ImageView
+                android:src="@drawable/ic_action_patient"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textSize="15sp"
+                android:text="Quản lý bệnh nhân"/>
+            <ImageView
+                android:src="@drawable/ic_action_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"/>
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textSize="15sp"
+                android:text="Quản lý bác sĩ"/>
+        </LinearLayout>
 
 
         <androidx.viewpager.widget.ViewPager

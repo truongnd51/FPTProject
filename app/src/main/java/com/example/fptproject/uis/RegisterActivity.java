@@ -52,14 +52,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String phone=edtPhone.getText().toString().trim();
                 if (username.length() != 0 && password.length() != 0) {
                     if (patientRepository.isUsernameExists(username)) {
-                        Toast.makeText(RegisterActivity.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                     } else {
                         patientRepository.addPatient(username, password, name, email, phone);
-                        Toast.makeText(RegisterActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập thông tin", Toast.LENGTH_SHORT).show();
                 }
             }
         });

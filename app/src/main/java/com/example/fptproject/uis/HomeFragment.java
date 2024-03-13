@@ -22,6 +22,7 @@ import com.example.fptproject.R;
 import com.example.fptproject.banner.ImagePaperAdapter;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.AdminRepository;
 import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.databases.repositories.PatientRepository;
 import com.example.fptproject.models.Doctor;
@@ -50,7 +51,8 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     PatientRepository patientRepository;
-    LinearLayout llLichDoctor;
+    AdminRepository adminRepository;
+    LinearLayout llLichDoctor, admin;
 
     private int[] mImageIds = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
     // TODO: Rename parameter arguments, choose names that match
@@ -134,13 +136,18 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.Home_menu_option);
         llLichDoctor=view.findViewById(R.id.llLichDoctor);
+        admin=view.findViewById(R.id.admin);
         dbHelper = new DBHelper(getContext());
+        adminRepository = new AdminRepository(dbHelper);
         doctorRepository = new DoctorRepository(dbHelper);
         patientRepository = new PatientRepository(dbHelper);
         //check xem tk là patient haY doctor
         if(doctorRepository.getDoctorByDoctorUsername(PrefManager.getString(getContext(),"username"))!=null){
             recyclerView.setVisibility(View.GONE);
-            llLichDoctor.setVisibility(View.VISIBLE);
+//            llLichDoctor.setVisibility(View.VISIBLE);
+        } else if (adminRepository.getAdminByUsername(PrefManager.getString(getContext(),"username"))!=null) {
+            recyclerView.setVisibility(View.GONE);
+            admin.setVisibility(View.VISIBLE);
         }
         navController = NavHostFragment.findNavController(HomeFragment.this);
         homeMenuAdapter = new HomeMenuAdapter(getList());

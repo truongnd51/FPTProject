@@ -41,20 +41,21 @@ public class PatientRepository {
     public Patient getPatientByPatientId(int patientId) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Patient patient = null;
-        String[] columns = {"patient_name", "patient_username", "patient_password", "patient_email", "patient_phone"};
+        String[] columns = { "patient_username", "patient_password","patient_name", "patient_email", "patient_phone"};
         String selection = "patient_id=?";
         String[] selectionArgs = {String.valueOf(patientId)};
 
         Cursor cursor = db.query("Patient", columns, selection, selectionArgs, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndex("patient_name"));
+
             String username = cursor.getString(cursor.getColumnIndex("patient_username"));
             String password = cursor.getString(cursor.getColumnIndex("patient_password"));
+            String name = cursor.getString(cursor.getColumnIndex("patient_name"));
             String email = cursor.getString(cursor.getColumnIndex("patient_email"));
             String phone = cursor.getString(cursor.getColumnIndex("patient_phone"));
 
-            patient = new Patient(patientId, name, username, password, email, phone);
+            patient = new Patient(patientId, username, password, name, email, phone);
         }
 
         if (cursor != null) {

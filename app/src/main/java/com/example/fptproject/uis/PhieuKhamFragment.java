@@ -95,14 +95,27 @@ public class PhieuKhamFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         init(view);
         List<PhieuKham> list =new ArrayList<>();
-        List<Booking> listBook = bookingRepository.getAllBookingByPatientId(patientRepository.getPatientIdByPatientUsername(PrefManager.getString(getContext(),"username")));
-        for(Booking booking : listBook){
-            Doctor doctor=doctorRepository.getDoctorByDoctorId(booking.getDoctorId());
-            Patient patient=patientRepository.getPatientByPatientId(booking.getPatientId());
-            String benh=diseaseRepository.getDiseaseNameByDiseaseId(booking.getBenh());
-            PhieuKham phieuKham = new PhieuKham(doctor.getName(), doctor.getPhone(),patient.getName(),patient.getPhone(), booking.getNgay(), booking.getGio(),benh,doctor.getPrice());
-            list.add(phieuKham);
+        String username = PrefManager.getString(getContext(),"username");
+        if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
+            List<Booking> listBook1 = bookingRepository.getAllBookingByDoctorId(doctorRepository.getDoctorIdByDoctorUsername(PrefManager.getString(getContext(),"username")));
+            for(Booking booking : listBook1){
+                Doctor doctor=doctorRepository.getDoctorByDoctorId(booking.getDoctorId());
+                Patient patient=patientRepository.getPatientByPatientId(booking.getPatientId());
+                String benh=diseaseRepository.getDiseaseNameByDiseaseId(booking.getBenh());
+                PhieuKham phieuKham = new PhieuKham(doctor.getName(), doctor.getPhone(),patient.getName(),patient.getPhone(), booking.getNgay(), booking.getGio(),benh,doctor.getPrice());
+                list.add(phieuKham);
+            }
+        }else{
+            List<Booking> listBook = bookingRepository.getAllBookingByPatientId(patientRepository.getPatientIdByPatientUsername(PrefManager.getString(getContext(),"username")));
+            for(Booking booking : listBook){
+                Doctor doctor=doctorRepository.getDoctorByDoctorId(booking.getDoctorId());
+                Patient patient=patientRepository.getPatientByPatientId(booking.getPatientId());
+                String benh=diseaseRepository.getDiseaseNameByDiseaseId(booking.getBenh());
+                PhieuKham phieuKham = new PhieuKham(doctor.getName(), doctor.getPhone(),patient.getName(),patient.getPhone(), booking.getNgay(), booking.getGio(),benh,doctor.getPrice());
+                list.add(phieuKham);
+            }
         }
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcv.setLayoutManager(linearLayoutManager);
         phieuKhamAdapter=new PhieuKhamAdapter(list);

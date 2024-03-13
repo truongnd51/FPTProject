@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="Chính sách bảo mật"
             android:textStyle="bold"
-            android:paddingLeft="40dp"
+            android:paddingLeft="70dp"
             android:textSize="30dp"
             android:textColor="@color/white"/>
     </LinearLayout>

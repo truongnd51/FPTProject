@@ -35,6 +35,14 @@ create table Booking(
     FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id),
     FOREIGN KEY (disease_id) REFERENCES Disease(disease_id)
 );
+CREATE TABLE Admin (
+    admin_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    admin_name TEXT,
+    admin_username TEXT,
+    admin_password TEXT
+);
+insert into Admin(admin_name,admin_username,admin_password)
+values("Duy Trường", "admin", "admin");
 insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)
 values(1,1,"14-03-2024","7:00-8:00",1);
 insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)

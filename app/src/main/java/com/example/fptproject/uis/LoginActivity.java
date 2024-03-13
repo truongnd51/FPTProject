@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.AdminRepository;
 import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.databases.repositories.PatientRepository;
 import com.example.fptproject.models.User;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     PatientRepository patientRepository;
+    AdminRepository adminRepository;
 
 
     @Override
@@ -49,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         doctorRepository = new DoctorRepository(dbHelper);
         patientRepository = new PatientRepository(dbHelper);
+        adminRepository = new AdminRepository(dbHelper);
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -66,15 +69,15 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edtUsername.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
                 if (username.length() != 0 && password.length() != 0) {
-                    if (patientRepository.checkPatient(username, password) || doctorRepository.checkDoctor(username, password)) {
-                        Toast.makeText(LoginActivity.this, "successful" + username + password, Toast.LENGTH_SHORT).show();
+                    if (patientRepository.checkPatient(username, password) || doctorRepository.checkDoctor(username, password) || adminRepository.checkAdmin(username,password)) {
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công" , Toast.LENGTH_SHORT).show();
                         PrefManager.saveString(LoginActivity.this, "username", username);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
-                        Toast.makeText(LoginActivity.this, "mk deo dung", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Mật khẩu không đúng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Nhap", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Yêu cầu nhập", Toast.LENGTH_SHORT).show();
                 }
             }
         });
