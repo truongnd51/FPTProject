@@ -13,7 +13,6 @@ import com.example.fptproject.uis.MainActivity;
 import com.example.fptproject.uis.UserFragment;
 
 public class QDSDActivity extends AppCompatActivity {
-    private ImageView img;
     private ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

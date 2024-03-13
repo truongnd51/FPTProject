@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chính sách bảo mật"
+            android:text="Điều khoản dịch vụ"
             android:textStyle="bold"
             android:paddingLeft="40dp"
             android:textSize="30dp"

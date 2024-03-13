@@ -3,12 +3,20 @@ package com.example.fptproject.uis;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fptproject.R;
+import com.example.fptproject.adapters.ArticleAdapter;
+import com.example.fptproject.models.Article;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,9 @@ import com.example.fptproject.R;
  * create an instance of this fragment.
  */
 public class NotificationFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private ArticleAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +72,21 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification, container, false);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        adapter = new ArticleAdapter(getlist());
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 1);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(adapter);
+        return view;
+    }
+
+    private List<Article> getlist(){
+        List<Article> list = new ArrayList<>();
+        list.add(new Article("Khái niệm về phương pháp tác động cột sống", "https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/suc-khoe-tong-quat/gioi-thieu-phuong-phap-tac-dong-cot-song/"));
+        list.add(new Article("17 bệnh lý điều trị hiệu quả bởi phương pháp tác động cột sống", "https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/17-benh-ly-dieu-tri-dut-diem-boi-phuong-phap-tac-dong-cot-song/"));
+        list.add(new Article("Tác dụng của phương pháp tác động cột sống", "https://tapchiyhocvietnam.vn/index.php/vmj/article/view/6828"));
+        return list;
     }
 }

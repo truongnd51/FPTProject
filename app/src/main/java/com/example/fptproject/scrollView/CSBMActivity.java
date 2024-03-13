@@ -13,7 +13,6 @@ import com.example.fptproject.uis.MainActivity;
 
 public class CSBMActivity extends AppCompatActivity {
     private ScrollView scrollView;
-    private ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

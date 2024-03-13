@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".uis.NotificationFragment">
 
     <LinearLayout
@@ -12,34 +13,23 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DANH SÁCH THÔNG BÁO"
+            android:text="TIN TỨC TÁC ĐỘNG CỘT SỐNG"
             android:textStyle="bold"
             android:paddingLeft="40dp"
-            android:textSize="27dp"
+            android:paddingTop="15dp"
+            android:textSize="23dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/tintuc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tin tức"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/gray"/>
-        <Button
-            android:id="@+id/thongbao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thông báo"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/gray"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

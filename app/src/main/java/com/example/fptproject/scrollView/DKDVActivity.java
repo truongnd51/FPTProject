@@ -14,7 +14,6 @@ import com.example.fptproject.uis.MainActivity;
 public class DKDVActivity extends AppCompatActivity {
 
     private ScrollView scrollView;
-    private ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
