@@ -75,7 +75,12 @@ INSERT INTO Patient (patient_name, patient_username, patient_password, patient_e
 VALUES ("Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380");
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
+VALUES ("Duy", "xoa", "truong","duytruong@gmail.com", "0386713380");
+
+INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("DT", "DT", "truong","dt@gmail.com", "0386713382");
+
+
 INSERT INTO Disease (disease_name, disease_description)
 VALUES ("Thoái hóa cột sống cổ", "Đau tại vị trí thoái hóa, đau tay, tay tê bì.");
 INSERT INTO Disease (disease_name, disease_description)

@@ -5,15 +5,20 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.models.Doctor;
 import com.example.fptproject.models.Patient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class PatientRepository {
     private final String TABLE_NAME = "Patient";
+    private final String COLUMN_ID = "patient_id";
     private final String COLUMN_USERNAME = "patient_username";
     private final String COLUMN_PASSWORD = "patient_password";
     private final String COLUMN_NAME = "patient_name";
@@ -198,5 +203,42 @@ public class PatientRepository {
         db.update(TABLE_NAME, values, selection, selectionArgs);
     }
 
+    public void deletePatientById(int id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Xác định mệnh đề WHERE để xóa dựa trên doctor_id
+        String selection = "patient_id = ?";
+        String[] selectionArgs = { String.valueOf(id) };
+
+        // Thực hiện lệnh xóa
+        int deletedRows = db.delete("Patient", selection, selectionArgs);
+
+        // Kiểm tra xem có bác sĩ nào được xóa không
+        if (deletedRows > 0) {
+            Log.d("PatientDelete", "Deleted patient with ID: " + id);
+        } else {
+            Log.d("PatientDelete", "Patient with ID " + id + " not found or could not be deleted.");
+        }
+    }
+
+    @SuppressLint("Range")
+    public List<Patient> getAll() {
+        String statement = "SELECT * FROM " + "Patient";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(statement, null);
+
+        List<Patient> list = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            list.add(new Patient(
+                    cursor.getInt(cursor.getColumnIndex("patient_id")),
+                    cursor.getString(cursor.getColumnIndex("patient_name")),
+                    cursor.getString(cursor.getColumnIndex("patient_username")),
+                    cursor.getString(cursor.getColumnIndex("patient_password")),
+                    cursor.getString(cursor.getColumnIndex("patient_email")),
+                    cursor.getString(cursor.getColumnIndex("patient_phone"))));
+        }
+        return list;
+    }
 
 }

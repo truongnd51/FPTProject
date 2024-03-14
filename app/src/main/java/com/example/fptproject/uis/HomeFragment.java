@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
     private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
     private ViewPager mViewPager;
     private ImagePaperAdapter mAdapter;
-    private ImageView img;
+    private ImageView img, imgPa;
     NavController navController;
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
@@ -173,6 +173,14 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_homeFragment_to_doctorManager);
+            }
+        });
+
+        imgPa = view.findViewById(R.id.patient_manager);
+        imgPa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_homeFragment_to_patientManager);
             }
         });
 
