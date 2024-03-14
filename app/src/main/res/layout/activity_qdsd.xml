@@ -17,7 +17,7 @@
             android:textStyle="bold"
             android:textSize="27dp"
             android:paddingLeft="70dp"
-            android:paddingTop="3dp"
+            android:paddingTop="10dp"
             android:textColor="@color/white"/>
     </LinearLayout>
     <ScrollView

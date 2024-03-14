@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="CẬP NHẬT THÔNG TIN"
             android:textStyle="bold"
+            android:paddingTop="10dp"
             android:gravity="center"
             android:textSize="30dp"
             android:textColor="@color/white"/>

@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:text="Danh sách bác sĩ"
             android:textStyle="bold"
-            android:textSize="27dp"
-            android:paddingLeft="74dp"
+            android:textSize="30dp"
+            android:paddingLeft="90dp"
             android:paddingTop="3dp"
             android:textColor="@color/white"/>
     </LinearLayout>
@@ -29,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="70dp"
+        android:gravity="right"
+        android:paddingRight="10dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/layout_top">
         <Button

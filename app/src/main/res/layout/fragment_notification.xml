@@ -15,9 +15,9 @@
             android:layout_height="wrap_content"
             android:text="TIN TỨC"
             android:textStyle="bold"
-            android:paddingLeft="140dp"
+            android:paddingLeft="150dp"
             android:paddingTop="15dp"
-            android:textSize="23dp"
+            android:textSize="30dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 

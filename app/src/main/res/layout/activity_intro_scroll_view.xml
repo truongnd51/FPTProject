@@ -53,7 +53,7 @@
                 android:id="@+id/textViewTitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PHÒNG KHÁM TÁC ĐỘNG CỘT SỐNG"
+                android:text="PHÒNG KHÁM MedF"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:textColor="@color/button"

@@ -64,9 +64,6 @@ INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price,
 VALUES ("Đỗ Thị Hương", "truong5", "truong5", "200.000 VND" ,"truong5@gmail.com", "0386713384", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/228-Do-Thi-Huong-2.jpg");
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
-VALUES ("Xóa", "xoa", "truong6", "150.000 VND" ,"truong6@gmail.com", "0386713383", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/12-Nguyen-Thi-Nga-2.jpg");
-
-INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Nguyễn Thị Nga", "truong6", "truong6", "150.000 VND" ,"truong6@gmail.com", "0386713383", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/12-Nguyen-Thi-Nga-2.jpg");
 
 

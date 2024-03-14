@@ -18,9 +18,9 @@
             android:layout_height="wrap_content"
             android:text="Danh sách người khám"
             android:textStyle="bold"
-            android:textSize="27dp"
-            android:paddingLeft="74dp"
-            android:paddingTop="3dp"
+            android:textSize="30dp"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 
