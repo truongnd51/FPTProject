@@ -115,39 +115,58 @@
                 android:textSize="15sp"
                 android:text="lich trinh"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingTop="10dp"
+            android:id="@+id/admin"
+            android:gravity="center"
+            android:orientation="horizontal">
             <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/admin"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="60dp"
-                android:layout_height="60dp">
+                android:visibility="visible"
+                android:orientation="vertical"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:weightSum="10">
                 <ImageView
-                    android:id="@+id/iv_patient"
                     android:src="@drawable/ic_action_patient"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"/>
-
-                <ImageView
-                    android:src="@drawable/ic_action_doctor"
-                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="7"
-                    />
+                    android:layout_weight="7"/>
                 <TextView
                     android:layout_weight="3"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:gravity="center"
                     android:textSize="15sp"
                     android:text="Bệnh nhân"/>
-                <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:textSize="15sp"
-                    android:text="Bác sĩ"/>
             </LinearLayout>
+                <LinearLayout
+                    android:visibility="visible"
+                    android:orientation="vertical"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:src="@drawable/ic_action_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="7"
+                        />
+                    <TextView
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:textSize="15sp"
+                        android:text="Bác sĩ"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
 
 
         <androidx.viewpager.widget.ViewPager
