@@ -20,6 +20,12 @@
         android:theme="@style/Theme.FPTProject"
         tools:targetApi="31">
         <activity
+            android:name=".admin.PatientManager"
+            android:exported="false" />
+        <activity
+            android:name=".admin.DoctorManager"
+            android:exported="false" />
+        <activity
             android:name=".uis.BookingAcitivty"
             android:exported="false" />
         <activity

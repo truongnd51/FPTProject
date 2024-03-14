@@ -15,10 +15,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.fptproject.DoctorChooseInterface;
 import com.example.fptproject.R;
+import com.example.fptproject.adapters.DoctorManagerAdapter;
 import com.example.fptproject.banner.ImagePaperAdapter;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
     private HomeMenuDoctorAdapter homeMenuDoctorAdapter;
     private ViewPager mViewPager;
     private ImagePaperAdapter mAdapter;
+    private ImageView img;
     NavController navController;
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
@@ -103,30 +106,30 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         return list;
     }
 
-    private List<HomeMenuDoctor> getDoctorList() {
-        List<HomeMenuDoctor> list = new ArrayList<>();
-
-        // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
-        DBHelper dbHelper = new DBHelper(getContext());
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String query = "SELECT doctor_name FROM Doctor";
-        Cursor cursor = db.rawQuery(query, null);
-
-        // Xử lý dữ liệu và thêm vào danh sách
-        if (cursor.moveToFirst()) {
-            do {
-                @SuppressLint("Range")
-                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
-                list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
-            } while (cursor.moveToNext());
-        }
-
-        // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
-        cursor.close();
-        dbHelper.close();
-
-        return list;
-    }
+//    private List<HomeMenuDoctor> getDoctorList() {
+//        List<HomeMenuDoctor> list = new ArrayList<>();
+//
+//        // Khởi tạo lớp trợ giúp và đọc dữ liệu từ bảng "Doctor"
+//        DBHelper dbHelper = new DBHelper(getContext());
+//        SQLiteDatabase db = dbHelper.getReadableDatabase();
+//        String query = "SELECT doctor_name FROM Doctor";
+//        Cursor cursor = db.rawQuery(query, null);
+//
+//        // Xử lý dữ liệu và thêm vào danh sách
+//        if (cursor.moveToFirst()) {
+//            do {
+//                @SuppressLint("Range")
+//                String doctorName = cursor.getString(cursor.getColumnIndex("doctor_name"));
+//                list.add(new HomeMenuDoctor(R.drawable.doctor, doctorName));
+//            } while (cursor.moveToNext());
+//        }
+//
+//        // Đóng kết nối cơ sở dữ liệu và giải phóng tài nguyên
+//        cursor.close();
+//        dbHelper.close();
+//
+//        return list;
+//    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -162,6 +165,13 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         mViewPager = view.findViewById(R.id.view_pager_home);
         mAdapter = new ImagePaperAdapter(requireContext(), mImageIds);
         mViewPager.setAdapter(mAdapter);
+        img = view.findViewById(R.id.doc_manager);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_homeFragment_to_doctorManager);
+            }
+        });
 
         return view;
     }
@@ -171,4 +181,6 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         bundle.putInt("doctor_id", doctor.getId());
         navController.navigate(R.id.action_homeFragment_to_doctorInfoActivity, bundle);
     }
+
+
 }

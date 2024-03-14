@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_doctorInfoActivity"
             app:destination="@id/doctorInfoActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_doctorManager"
+            app:destination="@id/doctorManager" />
     </fragment>
     <fragment
         android:id="@+id/hoSoFragment"
@@ -89,4 +92,9 @@
         android:id="@+id/bookingAcitivty"
         android:name="com.example.fptproject.uis.BookingAcitivty"
         android:label="BookingAcitivty" />
+    <activity
+        android:id="@+id/doctorManager"
+        android:name="com.example.fptproject.admin.DoctorManager"
+        android:label="activity_doctor_manager"
+        tools:layout="@layout/activity_doctor_manager" />
 </navigation>

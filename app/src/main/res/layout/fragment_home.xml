@@ -129,6 +129,7 @@
                 android:layout_height="60dp"
                 android:weightSum="10">
                 <ImageView
+                    android:id="@+id/patient_manager"
                     android:src="@drawable/ic_action_patient"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -148,6 +149,7 @@
                     android:layout_height="60dp"
                     android:weightSum="10">
                     <ImageView
+                        android:id="@+id/doc_manager"
                         android:src="@drawable/ic_action_doctor"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"

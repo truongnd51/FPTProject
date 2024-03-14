@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.models.Doctor;
@@ -158,6 +159,25 @@ public class DoctorRepository {
         }
         return doctor;
     }
+
+    public void deleteDoctorById(int id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Xác định mệnh đề WHERE để xóa dựa trên doctor_id
+        String selection = "doctor_id = ?";
+        String[] selectionArgs = { String.valueOf(id) };
+
+        // Thực hiện lệnh xóa
+        int deletedRows = db.delete("Doctor", selection, selectionArgs);
+
+        // Kiểm tra xem có bác sĩ nào được xóa không
+        if (deletedRows > 0) {
+            Log.d("DoctorDeletion", "Deleted doctor with ID: " + id);
+        } else {
+            Log.d("DoctorDeletion", "Doctor with ID " + id + " not found or could not be deleted.");
+        }
+    }
+
     @SuppressLint("Range")
     public int getDoctorIdByDoctorUsername(String username) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
