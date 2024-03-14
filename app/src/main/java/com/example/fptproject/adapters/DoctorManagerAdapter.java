@@ -31,6 +31,16 @@ public class DoctorManagerAdapter extends RecyclerView.Adapter<DoctorManagerAdap
         this.context = context;
     }
 
+    public void clear() {
+        doctorList.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Doctor> list) {
+        list.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public DoctorManagerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

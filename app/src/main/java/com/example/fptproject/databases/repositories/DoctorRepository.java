@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.models.Doctor;
+import com.example.fptproject.models.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -158,6 +159,34 @@ public class DoctorRepository {
             cursor.close();
         }
         return doctor;
+    }
+
+    public void addDoctor(String name, String username, String password, String price, String email, String phone, String des, String img) {
+        Doctor doctor = new Doctor(name, username, password, price, email, phone, des, img);
+        addDoctor(doctor);
+    }
+    public void addDoctor(Doctor doctor) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+
+        values.put(COLUMN_NAME, doctor.getName());
+        values.put(COLUMN_USERNAME, doctor.getUsername());
+        values.put(COLUMN_PASSWORD, doctor.getPassword());
+        values.put(COLUMN_PRICE, doctor.getPrice());
+        values.put(COLUMN_EMAIL, doctor.getEmail());
+        values.put(COLUMN_PHONE, doctor.getPhone());
+        values.put(COLUMN_DESCRIPTION, doctor.getDescription());
+        values.put(COLUMN_IMAGE, doctor.getImage());
+
+
+        long newRowId = db.insert(TABLE_NAME, null, values);
+        db.close();
+
+
+        if (newRowId == -1) {
+            System.out.println("Failed to add doctor to the database.");
+        }
     }
 
     public void deleteDoctorById(int id) {

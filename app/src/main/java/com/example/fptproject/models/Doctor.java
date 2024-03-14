@@ -41,6 +41,17 @@ public class Doctor {
         this.phone = doctorPhone;
     }
 
+    public Doctor(String name, String username, String password, String price, String email, String phone, String description, String image) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.price = price;
+        this.email = email;
+        this.phone = phone;
+        this.description = description;
+        this.image = image;
+    }
+
     public int getId() {
         return id;
     }

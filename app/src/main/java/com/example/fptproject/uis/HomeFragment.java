@@ -152,6 +152,9 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
             recyclerView.setVisibility(View.GONE);
             admin.setVisibility(View.VISIBLE);
         }
+        else {
+            admin.setVisibility(View.GONE);
+        }
         navController = NavHostFragment.findNavController(HomeFragment.this);
         homeMenuAdapter = new HomeMenuAdapter(getList());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
