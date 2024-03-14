@@ -20,9 +20,9 @@ public class Patient {
     public Patient() {
     }
     public Patient( String name, String username, String password, String email, String phone) {
+        this.name = name;
         this.username = username;
         this.password = password;
-        this.name = name;
         this.email = email;
         this.phone = phone;
     }
@@ -33,6 +33,13 @@ public class Patient {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
@@ -51,13 +58,7 @@ public class Patient {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;

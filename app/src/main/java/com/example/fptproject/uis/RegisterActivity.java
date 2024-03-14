@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (patientRepository.isUsernameExists(username)) {
                         Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                     } else {
-                        patientRepository.addPatient(username, password, name, email, phone);
+                        patientRepository.addPatient(name,username, password, email, phone);
                         Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }

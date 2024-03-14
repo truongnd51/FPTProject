@@ -20,7 +20,7 @@
             android:textStyle="bold"
             android:textSize="30dp"
             android:paddingLeft="90dp"
-            android:paddingTop="3dp"
+            android:paddingTop="10dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 
@@ -33,11 +33,11 @@
         android:paddingRight="10dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/layout_top">
-        <Button
+        <ImageView
+            android:src="@drawable/ic_add"
             android:id="@+id/bt_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thêm"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

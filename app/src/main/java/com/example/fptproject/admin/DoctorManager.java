@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.fptproject.R;
 import com.example.fptproject.adapters.DoctorManagerAdapter;
@@ -23,7 +24,7 @@ import java.util.List;
 public class DoctorManager extends AppCompatActivity {
     private RecyclerView recyclerView2;
     private DoctorManagerAdapter doctorManagerAdapter;
-    private Button bt;
+    private ImageView imageView;
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     @Override
@@ -39,8 +40,8 @@ public class DoctorManager extends AppCompatActivity {
         recyclerView2.setLayoutManager(manager);
         recyclerView2.setAdapter(doctorManagerAdapter);
 
-        bt = findViewById(R.id.bt_add);
-        bt.setOnClickListener(new View.OnClickListener() {
+        imageView = findViewById(R.id.bt_add);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DoctorManager.this, CreateDoctor.class);

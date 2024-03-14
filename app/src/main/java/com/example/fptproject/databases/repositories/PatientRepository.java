@@ -46,7 +46,7 @@ public class PatientRepository {
     public Patient getPatientByPatientId(int patientId) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Patient patient = null;
-        String[] columns = { "patient_username", "patient_password","patient_name", "patient_email", "patient_phone"};
+        String[] columns = { "patient_name","patient_username", "patient_password", "patient_email", "patient_phone"};
         String selection = "patient_id=?";
         String[] selectionArgs = {String.valueOf(patientId)};
 
@@ -54,13 +54,13 @@ public class PatientRepository {
 
         if (cursor != null && cursor.moveToFirst()) {
 
+            String name = cursor.getString(cursor.getColumnIndex("patient_name"));
             String username = cursor.getString(cursor.getColumnIndex("patient_username"));
             String password = cursor.getString(cursor.getColumnIndex("patient_password"));
-            String name = cursor.getString(cursor.getColumnIndex("patient_name"));
             String email = cursor.getString(cursor.getColumnIndex("patient_email"));
             String phone = cursor.getString(cursor.getColumnIndex("patient_phone"));
 
-            patient = new Patient(patientId, username, password, name, email, phone);
+            patient = new Patient(patientId, name, username, password, email, phone);
         }
 
         if (cursor != null) {
@@ -90,18 +90,17 @@ public class PatientRepository {
 
         return patientId;
     }
-    public void addPatient(String username, String password, String name, String email, String phone) {
-        Patient patient = new Patient(username, password, name, email, phone);
+    public void addPatient(String name,String username, String password, String email, String phone) {
+        Patient patient = new Patient(name,username, password, email, phone);
         addPatient(patient);
     }
     public void addPatient(Patient patient) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-
+        values.put(COLUMN_NAME, patient.getName());
         values.put(COLUMN_USERNAME, patient.getUsername());
         values.put(COLUMN_PASSWORD, patient.getPassword());
-        values.put(COLUMN_NAME, patient.getName());
         values.put(COLUMN_EMAIL, patient.getEmail());
         values.put(COLUMN_PHONE, patient.getPhone());
 
@@ -134,9 +133,9 @@ public class PatientRepository {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
                 "patient_id",
+                "patient_name",
                 "patient_username",
                 "patient_password",
-                "patient_name",
                 "patient_email",
                 "patient_phone"
         };

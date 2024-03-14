@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
             <TextView
-                android:text="ho va ten"
+                android:text="NULL"
                 android:id="@+id/tvNameHoSo"
                 android:textColor="@color/black"
                 android:textSize="22dp"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
             <TextView
-                android:text="ho va ten"
+                android:text="NULL"
                 android:id="@+id/tvEmailHoSo"
                 android:textColor="@color/black"
                 android:textSize="22dp"
@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
             <TextView
-                android:text="ho va ten"
+                android:text="NULL"
                 android:id="@+id/tvPhoneHoSo"
                 android:textColor="@color/black"
                 android:textSize="22dp"

@@ -104,17 +104,17 @@ public class BookingRepository {
         return bookings;
     }
     @SuppressLint("Range")
-    public List<Booking> getAllBookingByDoctorId(int patientId) {
+    public List<Booking> getAllBookingByDoctorId(int doctorId) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         List<Booking> bookings = new ArrayList<>();
         String selection = "doctor_id=?";
-        String[] selectionArgs = {String.valueOf(patientId)};
+        String[] selectionArgs = {String.valueOf(doctorId)};
 
         Cursor cursor = db.query("Booking", null, selection, selectionArgs, null, null, NGAY + " DESC");
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                int doctorId = cursor.getInt(cursor.getColumnIndex("doctor_id"));
+                int patientId = cursor.getInt(cursor.getColumnIndex("patient_id"));
                 String date = cursor.getString(cursor.getColumnIndex("ngay"));
                 String time = cursor.getString(cursor.getColumnIndex("gio"));
                 int diseaseId = cursor.getInt(cursor.getColumnIndex("disease_id"));

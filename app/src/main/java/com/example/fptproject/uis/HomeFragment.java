@@ -147,6 +147,7 @@ public class HomeFragment extends Fragment implements DoctorChooseInterface {
         //check xem tk là patient haY doctor
         if(doctorRepository.getDoctorByDoctorUsername(PrefManager.getString(getContext(),"username"))!=null){
             recyclerView.setVisibility(View.GONE);
+            admin.setVisibility(View.GONE);
 //            llLichDoctor.setVisibility(View.VISIBLE);
         } else if (adminRepository.getAdminByUsername(PrefManager.getString(getContext(),"username"))!=null) {
             recyclerView.setVisibility(View.GONE);

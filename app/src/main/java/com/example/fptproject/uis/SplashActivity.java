@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         // Tạo hiệu ứng flash bằng cách chờ một khoảng thời gian và sau đó chuyển sang màn hình chính
-        int splashScreenDuration = 2000; // Thời gian hiển thị màn hình flash (2 giây trong ví dụ này)
+        int splashScreenDuration = 3000; // Thời gian hiển thị màn hình flash (2 giây trong ví dụ này)
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

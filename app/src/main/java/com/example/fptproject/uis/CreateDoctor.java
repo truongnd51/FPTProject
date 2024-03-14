@@ -7,16 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fptproject.R;
 import com.example.fptproject.admin.DoctorManager;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.repositories.DoctorRepository;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class CreateDoctor extends AppCompatActivity {
 
@@ -29,7 +25,7 @@ public class CreateDoctor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_docter);
+        setContentView(R.layout.activity_create_doctor);
         DBHelper dbHelper = new DBHelper(this);
         doctorRepository = new DoctorRepository(dbHelper);
         edtName = findViewById(R.id.name);
