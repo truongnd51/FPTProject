@@ -23,19 +23,19 @@
 
     <EditText
         android:id="@+id/edtUsername2"
-        android:hint="Username:"
+        android:hint="Tài khoản:"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/edtPassword2"
-        android:hint="Password:"
+        android:hint="Mật khẩu:"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/edtName"
-        android:hint="FullName:"
+        android:hint="Họ và tên:"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/edtPhone"
-        android:hint="Phone:"
+        android:hint="Số điện thoại:"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -58,5 +58,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Register" />
+        android:text="Đăng ký" />
 </LinearLayout>

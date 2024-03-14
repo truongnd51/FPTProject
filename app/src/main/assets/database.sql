@@ -71,8 +71,6 @@ VALUES ("Nguyễn Thị Nga", "truong6", "truong6", "150.000 VND" ,"truong6@gmai
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("Duy Truong", "duytruong", "truong","duytruong@gmail.com", "0386713380");
 
-INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
-VALUES ("Duy", "xoa", "truong","duytruong@gmail.com", "0386713380");
 
 INSERT INTO Patient (patient_name, patient_username, patient_password, patient_email, patient_phone)
 VALUES ("DT", "DT", "truong","dt@gmail.com", "0386713382");
