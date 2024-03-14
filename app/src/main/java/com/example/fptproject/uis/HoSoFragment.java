@@ -16,8 +16,10 @@ import android.widget.TextView;
 import com.example.fptproject.R;
 import com.example.fptproject.databases.DBHelper;
 import com.example.fptproject.databases.PrefManager;
+import com.example.fptproject.databases.repositories.AdminRepository;
 import com.example.fptproject.databases.repositories.DoctorRepository;
 import com.example.fptproject.databases.repositories.PatientRepository;
+import com.example.fptproject.models.Admin;
 import com.example.fptproject.models.Doctor;
 import com.example.fptproject.models.Patient;
 
@@ -39,6 +41,7 @@ public class HoSoFragment extends Fragment {
     DBHelper dbHelper;
     DoctorRepository doctorRepository;
     PatientRepository patientRepository;
+    AdminRepository adminRepository;
     TextView tvName,tvEmail,tvPhone,tv_update;
 
     public HoSoFragment() {
@@ -98,11 +101,16 @@ public class HoSoFragment extends Fragment {
         });
         doctorRepository=new DoctorRepository(dbHelper);
         patientRepository=new PatientRepository(dbHelper);
+        adminRepository=new AdminRepository(dbHelper);
         if(doctorRepository.getDoctorByDoctorUsername(username)!=null){
             Doctor doctor=doctorRepository.getDoctorByDoctorUsername(username);
             tvName.setText(doctor.getName());
             tvPhone.setText(doctor.getPhone());
             tvEmail.setText(doctor.getEmail());
+
+        }else if (adminRepository.getAdminByUsername(username)!=null) {
+            Admin admin = adminRepository.getAdminByUsername(username);
+            tvName.setText(admin.getName());
         }else{
             Patient patient = patientRepository.getPatientByPatientUsername(username);
             tvName.setText(patient.getName());
