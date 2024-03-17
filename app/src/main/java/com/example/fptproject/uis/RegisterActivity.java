@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String name=edtName.getText().toString().trim();
                 String email=edtEmail.getText().toString().trim();
                 String phone=edtPhone.getText().toString().trim();
-                if (username.length() != 0 && password.length() != 0) {
+                if (username.length() != 0 && password.length() != 0 && name.length() !=0 && email.length() !=0 && phone.length() !=0) {
                     if (patientRepository.isUsernameExists(username)) {
                         Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                     } else {

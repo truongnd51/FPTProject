@@ -16,7 +16,7 @@
     <item android:icon="@drawable/notification_icon"
         android:id="@+id/notificationFragment"
         app:showAsAction="always"
-        android:title="Thông báo"/>
+        android:title="Tin tức"/>
     <item android:icon="@drawable/user_icon"
         android:id="@+id/userFragment"
         app:showAsAction="always"

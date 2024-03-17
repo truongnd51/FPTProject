@@ -42,11 +42,11 @@ CREATE TABLE Admin (
     admin_password TEXT
 );
 insert into Admin(admin_name,admin_username,admin_password)
-values("Duy Trường", "admin", "admin");
+values("Admin", "admin", "admin");
 insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)
-values(1,1,"14-03-2024","7:00-8:00",1);
+values(2,1,"14-03-2024","7:00-8:00",1);
 insert into Booking(doctor_id,patient_id,ngay,gio,disease_id)
-values(1,2,"14-03-2024","8:00-9:00",2);
+values(2,2,"14-03-2024","8:00-9:00",2);
 
 INSERT INTO Doctor (doctor_name, doctor_username, doctor_password, doctor_price, doctor_email, doctor_phone, doctor_description, doctor_image)
 VALUES ("Lưu Sinh Cơ", "truong", "truong", "300.000 VND" ,"truong@gmail.com", "0386713388", "Có trên 10 năm kinh nghiệm và chữa được nhiều loại bệnh. Đã từng chữa khỏi cho nhiều bệnh nhân mắc phải các căn bệnh khó chữa." ,"https://hongngochospital.vn/wp-content/uploads/2020/02/168-Luu-Sinh-Co.jpg");
