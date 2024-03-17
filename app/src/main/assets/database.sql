@@ -30,7 +30,7 @@ create table Booking(
     patient_id INTEGER,
     ngay TEXT,
     gio TEXT,
-    disease_id,
+    disease_id INTEGER,
     FOREIGN KEY (patient_id) REFERENCES Patient(patient_id),
     FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id),
     FOREIGN KEY (disease_id) REFERENCES Disease(disease_id)
